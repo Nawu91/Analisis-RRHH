@@ -9,7 +9,7 @@ st.header("Evaluacion de Desempeño 2022")
 
 @st.cache
 def get_data():
-    path =r'Ed 2022.xlsx'
+    path =r'https://github.com/Nawu91/Analisis-RRHH/blob/f1279dc6c9ebf77152e1ab845358b7ac08ae892d/Ed%202022.xlsx'
     return pd.read_excel(path)
 
 df = get_data()
