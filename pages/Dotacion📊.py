@@ -14,7 +14,7 @@ st.header('Contrataciones')
 @st.cache
 def get_data():
     path ='https://github.com/Nawu91/Analisis-RRHH/blob/main/Conceptos%20Noviembre.xlsx'
-    hoja =r'Dota General'
+    hoja ='Dota General'
     return pd.read_excel(path,hoja)
 
 df = get_data()
