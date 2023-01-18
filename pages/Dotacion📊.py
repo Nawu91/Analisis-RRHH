@@ -69,7 +69,9 @@ ind7.metric(label='AT',
                 delta_color='normal',)
 
 st.header('Reparticiones')
-
+st.multiselect(label='Reparticiones',
+               options=['DGDIYA','SSFPFC','DGAII','DGMUJ','SECISYAI','DGPSA','DGABCO']
+               )
 
 areas = px.bar(data_frame= df,
                 x='Reparticion General',
