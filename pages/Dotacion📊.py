@@ -69,12 +69,12 @@ ind7.metric(label='AT',
                 delta_color='normal',)
 
 st.header('Reparticiones')
-st.multiselect(label='Reparticiones',
+opcion_repa = st.multiselect(label='Reparticiones',
                options=['DGDIYA','SSFPFC','DGAII','DGMUJ','SECISYAI','DGPSA','DGABCO','MDHYHGC','DGPOLA','DGEPS','DGDEIS','DGDIM','DGTALMDHYHGC','DGINFS','COPIDIS','SSDPH','DGAPP','SSADMINIS','UAIMDHYH','UUBPCM','DGINS','DGMV','DGINE','DGOPDU','DGPLCG','FCE']
                )
 
 areas = px.bar(data_frame= df,
-                x='Reparticion General',
+                x=df[df['Rparticion General']==opcion_repa],
                 color='Modalidad',
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
