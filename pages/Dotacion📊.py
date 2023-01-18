@@ -72,7 +72,7 @@ st.header('Reparticiones')
 
 
 areas = px.bar(data_frame= df,
-                x=['Rparticion General']=='DGDIYA',
+                x='Rparticion General',
                 color='Modalidad',
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
