@@ -74,7 +74,7 @@ opcion_repa = st.multiselect(label='Reparticiones',
                )
 
 areas = px.bar(data_frame= df,
-                x=df[df['Rparticion General']==opcion_repa],
+                x=['Rparticion General']==opcion_repa,
                 color='Modalidad',
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
