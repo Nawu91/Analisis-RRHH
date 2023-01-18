@@ -71,7 +71,7 @@ ind7.metric(label='AT',
 st.header('Reparticiones')
 
 
-areas = px.bar(data_frame= df,
+areas = px.bar(df,
                 x='Rparticion General',
                 color='Modalidad',
                 barmode= 'relative',
