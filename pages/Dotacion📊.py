@@ -13,7 +13,7 @@ st.header('Contrataciones')
 
 @st.cache
 def get_data():
-    path ='Conceptos Noviembre.xlsx'
+    path =r'Conceptos Noviembre.xlsx'
     hoja =r'Dota General'
     return pd.read_excel(path,hoja)
 
@@ -70,8 +70,9 @@ ind7.metric(label='AT',
 
 st.header('Reparticiones')
 
-areas = px.bar(data_frame = df,
-                x='Rparticion General',
+
+areas = px.bar(data_frame= df,
+                x='Reparticion General',
                 color='Modalidad',
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
