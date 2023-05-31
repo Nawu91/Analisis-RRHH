@@ -6,7 +6,7 @@ st.set_page_config(page_title='Filtro',
                     initial_sidebar_state="expanded")
 
 def main():
-    st.title("Aplicación de filtros en archivos Excel o CSV")
+    st.title("Aplicación de filtros")
 
     # Cargar archivo
     file = st.file_uploader("Cargar archivo Excel o CSV", type=["xlsx", "csv"])
