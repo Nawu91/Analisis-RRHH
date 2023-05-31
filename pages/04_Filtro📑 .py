@@ -1,6 +1,10 @@
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(page_title='Filtro',
+                    layout='wide',
+                    initial_sidebar_state="expanded")
+
 def main():
     st.title("Aplicación de filtros en archivos Excel o CSV")
 
