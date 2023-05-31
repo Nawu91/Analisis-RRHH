@@ -22,8 +22,8 @@ progreso = px.pie(
                 data_frame=df,
                 names='Status Micaela',
                 color_discrete_sequence=px.colors.qualitative.Set2,
-                height=500,
-                width=800,
+                height=700,
+                width=1000,
                 hole=.4)
 st.plotly_chart(progreso,theme="streamlit", use_conatiner_width='centered')
 
