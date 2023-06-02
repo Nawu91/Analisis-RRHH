@@ -12,7 +12,7 @@ st.set_page_config(page_title='Dotacion RRHH',
 st.header('Contrataciones')
 
 files = os.listdir('dotaciones/')
-selected_files = st.selectbox('Archivos de Excel', range(int(files)), format_func=lambda i: files[i])
+selected_files = st.multiselect('Archivos de Excel', files,'Concepto Noviembre.xlsx')
 
 @st.cache
 def get_data(file_name):
