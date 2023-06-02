@@ -20,8 +20,9 @@ def get_data(file_name):
     hoja ='Dota General'
     return pd.read_excel(path, sheet_name=hoja)
 
-if len(selected_files) > 0:
-    df = get_data(selected_files[0])
+if selected_file_index is not None:
+    selected_file = files[selected_file_index]
+    df = get_data(selected_file)
 
 
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
