@@ -11,11 +11,17 @@ st.set_page_config(page_title='Dotacion RRHH',
 
 st.header('Contrataciones')
 
+files = os.listdir('dotaciones/')
+selected_files = st.sidebar.multiselect('Archivos de Excel', files)
+
 @st.cache
-def get_data():
-    path =r'dotaciones/Conceptos Noviembre.xlsx'
-    hoja =r'Dota General'
-    return pd.read_excel(path,hoja)
+def get_data(file_name):
+    path = os.path.join('dotaciones', file_name)
+    hoja ='Dota General'
+    return pd.read_excel(path, hoja)
+
+if len(selected_files) > 0:
+    df = get_data(selected_files[0])
 
 df = get_data()
 
