@@ -12,7 +12,7 @@ st.set_page_config(page_title='Dotacion RRHH',
 st.header('Contrataciones')
 
 files = os.listdir('dotaciones/')
-selected_files = st.sidebar.multiselect('Archivos de Excel', files, 'Conceptos Noviembre.xlsx')
+selected_files = st.multiselect('Archivos de Excel', files, 'Conceptos Noviembre.xlsx')
 
 @st.cache
 def get_data(file_name):
