@@ -38,7 +38,7 @@ cg_ta = df[(df["Modalidad"] == "Carrera Gerencial")]["Total Asig"].sum()
 gab_ta = df[(df["Modalidad"] == "Gabinete")]["Total Asig"].sum()
 pp_ta = df[(df["Modalidad"] == "Planta Permanente")]["Total Asig"].sum()
 pt_ta = df[(df["Modalidad"] == "Plantas Transitorias")]["Total Asig"].sum()
-conls_ta = df[(df["Modalidad"] == "CLS")]["Total Asig"].sum(True)
+conls_ta = df[(df["Modalidad"] == "CLS")]["Total Asig"].sum()
 at_ta = df[(df["Modalidad"] == "AT")]["Total Asig"].sum()
 
 ind1, ind2, ind3 = st.columns(3)
