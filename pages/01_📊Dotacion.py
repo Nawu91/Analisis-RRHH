@@ -23,7 +23,6 @@ def get_data(file_name):
 if len(selected_files) > 0:
     df = get_data(selected_files[0])
 
-df = get_data()
 
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
 cg = df[(df["Modalidad"] == "Carrera Gerencial")]["Modalidad"].count()
