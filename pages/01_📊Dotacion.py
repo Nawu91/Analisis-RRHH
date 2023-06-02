@@ -18,7 +18,7 @@ selected_files = st.sidebar.multiselect('Archivos de Excel', files)
 def get_data(file_name):
     path = os.path.join('dotaciones', file_name)
     hoja ='Dota General'
-    return pd.read_excel(path, hoja)
+    return pd.read_excel(path, sheet_name=hoja)
 
 if len(selected_files) > 0:
     df = get_data(selected_files[0])
