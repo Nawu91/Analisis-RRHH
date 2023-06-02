@@ -13,7 +13,7 @@ st.header('Contrataciones')
 
 @st.cache
 def get_data():
-    path =r'Conceptos Noviembre.xlsx'
+    path =r'dotaciones/Conceptos Noviembre.xlsx'
     hoja =r'Dota General'
     return pd.read_excel(path,hoja)
 
