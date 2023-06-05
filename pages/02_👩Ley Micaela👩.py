@@ -17,6 +17,8 @@ df = get_data()
 colaborador = df[df['Rol']=='Colaborador']
 lider = df[df['Rol']=='Líder']
 
+progreso,(grafico_col, grafico_lid) = st.
+
 st.header('Progreso total')
 progreso = px.pie(
                 data_frame=df,
