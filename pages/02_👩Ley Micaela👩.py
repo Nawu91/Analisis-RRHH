@@ -38,8 +38,6 @@ grafico_col = px.bar(data_frame = colaborador,
                 color='Status Micaela',
                 labels={'variable':'Status','value':'Agentes'},
                 barmode= 'relative',
-                height=500,
-                width=1200,
                 color_discrete_sequence=px.colors.qualitative.Set2)
 grafico_col.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
@@ -49,8 +47,6 @@ grafico_lid = px.bar(
                     color='Status Micaela',
                     labels={'variable':'Status','value':'Agentes'},
                     barmode= 'relative',
-                    height=500,
-                    width=1200,
                     color_discrete_sequence=px.colors.qualitative.Set2)
 grafico_lid.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
