@@ -82,7 +82,7 @@ areas = px.bar(data_frame= df,
                 color='Modalidad',
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
-                width=1500,
+                width=1450,
                 height=500)
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
 
