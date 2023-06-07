@@ -32,7 +32,7 @@ for archivo in archivos:
         
         # Agregar el DataFrame a df_final
         df_final = pd.concat([df_final, df], ignore_index=True)
-df_contador = df_final.groupby('Archivo')['Modalidad'].value_counts().reset_index(name='Contador')
+df_contador = df_final.groupby('Archivo')['Modalidad'].value_counts()
 st.write(df_final)
 st.write(df_contador)
 
