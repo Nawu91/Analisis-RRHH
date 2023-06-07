@@ -36,6 +36,8 @@ df_contador = df_final.groupby('Archivo')['Modalidad'].value_counts().unstack(fi
 st.write(df_final)
 st.write(df_contador)
 
+st.line_chart(df_contador)
+
 st.header('Contrataciones')
 
 files = os.listdir('dotaciones/')
