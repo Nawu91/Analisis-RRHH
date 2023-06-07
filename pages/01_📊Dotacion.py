@@ -33,10 +33,7 @@ for archivo in archivos:
         # Agregar el DataFrame a df_final
         df_final = pd.concat([df_final, df], ignore_index=True)
 
-st.line_chart(data=df_final,
-              x='Modalidad'
-              y='Archivo'          
-)
+st.write(format_dataframe(df_final))
 
 st.header('Contrataciones')
 
