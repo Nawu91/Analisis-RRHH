@@ -9,6 +9,35 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
+st.header('Contrataciones anual')
+
+# Ruta de la carpeta que contiene los archivos de Excel
+carpeta = 'dotaciones/'
+
+# Obtener la lista de archivos en la carpeta
+archivos = [archivo for archivo in os.listdir(carpeta) if archivo.endswith('.xlsx')]
+
+# Crear un DataFrame vacío para almacenar los datos
+df_final = pd.DataFrame()
+
+# Recorrer los archivos de Excel
+for archivo in archivos:
+    # Leer cada hoja de Excel en un DataFrame separado
+    xls = pd.ExcelFile(os.path.join(carpeta, archivo))
+    for hoja in xls.sheet_names:
+        df = pd.read_excel(xls, 'Dota General')
+        
+        # Agregar una columna con el nombre del archivo
+        df['Archivo'] = archivo
+        
+        # Agregar el DataFrame a df_final
+        df_final = pd.concat([df_final, df], ignore_index=True)
+
+st.line_chart(data=df_final,
+              x='Modalidad'
+              y='Archivo'          
+)
+
 st.header('Contrataciones')
 
 files = os.listdir('dotaciones/')
