@@ -33,7 +33,7 @@ for archivo in archivos:
         # Agregar el DataFrame a df_final
         df_final = pd.concat([df_final, df], ignore_index=True)
 
-st.write(format_dataframe(df_final))
+st.write(df_final)
 
 st.header('Contrataciones')
 
