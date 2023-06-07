@@ -30,10 +30,9 @@ with col1:
                     width=1200,
                     hole=.4)
     st.plotly_chart(progreso,theme="streamlit", use_conatiner_width='centered')
-
-    st.header('Progreso por reparticiones')
+        
 with col2:
-
+    st.header('Progreso por reparticiones')
     opcion = st.radio(
                     "Selecciona el rol:",
                     ('Colaborador', 'Lider'))
