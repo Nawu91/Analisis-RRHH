@@ -27,7 +27,7 @@ with col1:
                     names='Status Micaela',
                     color_discrete_sequence=px.colors.qualitative.Set2,
                     height=500,
-                    width=500,
+                    width=400,
                     hole=.4)
     st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=True)
 
