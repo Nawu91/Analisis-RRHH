@@ -8,7 +8,10 @@ import plotly.express as px
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
-
+                    
+files = os.listdir('dotaciones/')
+sorted_files = sorted(files)
+selected_file_index = st.selectbox('Selecciona el periodo', range(len(sorted_files)), format_func=lambda i: sorted_files[i])
 
 @st.cache
 def get_data(file_name):
