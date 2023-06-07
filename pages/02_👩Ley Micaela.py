@@ -28,7 +28,7 @@ with col1:
                 height=500,
                 width=600,
                 hole=.4)
-    st.plotly_chart(progreso,theme="streamlit", use_conatiner_width='centered')
+    st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=True)
 
     st.header('Progreso por reparticiones')
 
