@@ -28,7 +28,7 @@ with col1:
                 height=500,
                 width=600,
                 hole=.4)
-    st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=False)
+    st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=True)
 with col2:
     st.header('Progreso por reparticiones')
 
@@ -54,6 +54,6 @@ with col2:
     grafico_lid.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
     if opcion == 'Colaborador':
-        st.plotly_chart(grafico_col, theme="streamlit",use_conatiner_width='centered')
+        st.plotly_chart(grafico_col, theme="streamlit",use_conatiner_width=True)
     else:
-        st.plotly_chart(grafico_lid, theme="streamlit", use_conatiner_width='centered')
+        st.plotly_chart(grafico_lid, theme="streamlit", use_conatiner_width=True)
