@@ -16,9 +16,8 @@ df_anual = get_data2()
 
 st.header('Dotacion anual')
 
-st.line_chart(data=df_anual,
-              x='Modalidad',
-              y='Count')
+st.line_chart(data=df_anual
+)
 
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
