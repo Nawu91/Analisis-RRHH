@@ -8,8 +8,7 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
-carpeta = 'C:/Users/Usuario/Desktop/dotaciones'
-archivos = os.listdir(carpeta)
+archivos = os.listdir('dotaciones/')
 df_final = pd.DataFrame(columns=['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo'])
 
 
