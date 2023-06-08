@@ -14,7 +14,7 @@ def get_data2():
 
 df_anual = get_data2()
 
-st.header('Dotacion anual')
+st.header('Anual 2023')
 
 lineas = px.bar(df_anual, 
                 x="Periodo", 
@@ -90,7 +90,7 @@ ind7.metric(label='AT',
                 delta='$' + format(at_ta,'0,.2f'),
                 delta_color='normal',)
 
-st.header('Reparticiones')
+st.header('Dotacion por reparticiones')
 
 
 areas = px.bar(data_frame= df,
