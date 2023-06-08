@@ -22,7 +22,7 @@ for archivo in archivos:
         df = df[['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo']]        
         df_final = pd.concat([df_final, df], ignore_index=True)
 
-st.DataFrame(df_final)
+st.dataframe(df_final)
 
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
