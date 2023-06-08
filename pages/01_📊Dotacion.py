@@ -15,7 +15,7 @@ df_final = pd.DataFrame(columns=['Modalidad', 'Reparticion General', 'Total Asig
 for archivo in archivos:
     if archivo.endswith('.xlsx'):
        
-        df = pd.read_excel(os.path.join(carpeta, archivo))
+        df = pd.read_excel(os.path.join(archivo))
         periodo = archivo.split('.')[0]        
         df['Periodo'] = periodo        
         df = df[['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo']]        
