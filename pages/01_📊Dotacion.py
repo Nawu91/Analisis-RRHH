@@ -27,7 +27,7 @@ lineas = px.bar(df_anual,
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
 files = os.listdir('dotaciones/')
-selected_file_index = st.selectbox('Selecciona el periodo',files)
+selected_file_index = st.selectbox('Selecciona el periodo',, range(len(files)), format_func=lambda i: files[i])
 
 @st.cache
 def get_data(file_name):
