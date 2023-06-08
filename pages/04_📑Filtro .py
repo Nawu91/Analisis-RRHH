@@ -7,9 +7,9 @@ st.set_page_config(page_title='Filtro',
 
 def main():
     st.title("Aplicación de filtros")
-
+    
     # Cargar archivo
-    file = st.file_uploader("Cargar archivo Excel o CSV", type=["xlsx", "csv"])
+    file = st.file_uploader("Carga la planilla que deseas filtrar", type=["xlsx", "csv"])
 
     if file is not None:
         # Leer archivo
