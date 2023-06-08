@@ -8,26 +8,6 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
-carpeta = 'dotaciones/'
-archivos = os.listdir(carpeta)
-df_final = pd.DataFrame(columns=['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo'])
-
-
-for archivo in archivos:
-    if archivo.endswith('.xlsx'):
-       
-        df = pd.read_excel(os.path.join(carpeta, archivo))
-        periodo = archivo.split('.')[0]        
-        df['Periodo'] = periodo        
-        df = df[['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo']]        
-        df_final = pd.concat([df_final, df], ignore_index=True)
-
-st.dataframe(df_final)
-
-files = os.listdir('dotaciones/')
-sorted_files = sorted(files)
-selected_file_index = st.selectbox('Selecciona el periodo', range(len(sorted_files)), format_func=lambda i: sorted_files[i])
-
 @st.cache
 def get_data(file_name):
     path = os.path.join('dotaciones', file_name)
