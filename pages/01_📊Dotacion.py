@@ -4,10 +4,25 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
+
+carpeta = 'C:/Users/Usuario/Desktop/dotaciones'
+archivos = os.listdir(carpeta)
+df_final = pd.DataFrame(columns=['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo'])
+
+
+for archivo in archivos:
+    if archivo.endswith('.xlsx'):
+       
+        df = pd.read_excel(os.path.join(carpeta, archivo))
+        periodo = archivo.split('.')[0]        
+        df['Periodo'] = periodo        
+        df = df[['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo']]        
+        df_final = pd.concat([df_final, df], ignore_index=True)
+
+st.DataFrame(df_final)
 
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
@@ -22,7 +37,7 @@ def get_data(file_name):
 if selected_file_index is not None:
     selected_file = files[selected_file_index]
     df = get_data(selected_file)
-    
+
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
 cg = df[(df["Modalidad"] == "Carrera Gerencial")]["Modalidad"].count()
 gab = df[(df["Modalidad"] == "Gabinete")]["Modalidad"].count()
