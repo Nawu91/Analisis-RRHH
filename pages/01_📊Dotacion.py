@@ -23,6 +23,7 @@ lineas = px.bar(df_anual,
                 barmode='group',
                 width=1450,
                 height=500,
+                color_discrete_sequence=px.colors.qualitative.Set2,
                 text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
