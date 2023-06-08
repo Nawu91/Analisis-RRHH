@@ -40,7 +40,7 @@ if selected_file_index is not None:
 
 
 
-st.header('Dotacion mensual')
+st.header('Dotacion del periodo seleccionado')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
 cg = df[(df["Modalidad"] == "Carrera Gerencial")]["Modalidad"].count()
 gab = df[(df["Modalidad"] == "Gabinete")]["Modalidad"].count()
