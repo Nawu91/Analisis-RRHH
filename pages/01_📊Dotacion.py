@@ -8,7 +8,7 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
-st.header('dotacion anual')
+st.header('Dotacion anual')
 
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
@@ -23,7 +23,7 @@ if selected_file_index is not None:
     selected_file = files[selected_file_index]
     df = get_data(selected_file)
 
-st.header('dotacion mensual')
+st.header('Dotacion mensual')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
 cg = df[(df["Modalidad"] == "Carrera Gerencial")]["Modalidad"].count()
 gab = df[(df["Modalidad"] == "Gabinete")]["Modalidad"].count()
