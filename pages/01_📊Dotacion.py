@@ -10,7 +10,7 @@ st.set_page_config(page_title='Dotacion RRHH',
 
 st.header('Dotacion anual')
 
-st.data_frame(df_anual)
+st.dataframe(df_anual)
 
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
