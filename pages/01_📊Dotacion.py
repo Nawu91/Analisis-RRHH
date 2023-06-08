@@ -16,7 +16,14 @@ df_anual = get_data2()
 
 st.header('Dotacion anual')
 
-lineas = px.bar(df_anual, x="Periodo", y="Count", color='Modalidad',barmode= 'relative')
+lineas = px.bar(df_anual, 
+                x="Periodo", 
+                y="Count", 
+                color='Modalidad',
+                barmode= 'relative',
+                width=1450,
+                height=500,
+                text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
 files = os.listdir('dotaciones/')
