@@ -7,6 +7,12 @@ import plotly.express as px
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
+@st.cache
+def get_data2():
+    path =r'acumulado.xlsx'
+    return pd.read_excel(path)
+
+df_anual = get_data2()
 
 st.header('Dotacion anual')
 
@@ -25,11 +31,7 @@ if selected_file_index is not None:
     selected_file = files[selected_file_index]
     df = get_data(selected_file)
 
-def get_data2():
-    path =r'acumulado.xlsx'
-    return pd.read_excel(path)
 
-df_anual = get_data2()
 
 st.header('Dotacion mensual')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
