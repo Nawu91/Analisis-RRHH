@@ -8,14 +8,15 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
-archivos = os.listdir('dotaciones/')
+carpeta = 'dotaciones/'
+archivos = os.listdir(carpeta)
 df_final = pd.DataFrame(columns=['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo'])
 
 
 for archivo in archivos:
     if archivo.endswith('.xlsx'):
        
-        df = pd.read_excel(os.path.join(archivo))
+        df = pd.read_excel(os.path.join(carpeta, archivo))
         periodo = archivo.split('.')[0]        
         df['Periodo'] = periodo        
         df = df[['Modalidad', 'Reparticion General', 'Total Asig', 'Periodo']]        
