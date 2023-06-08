@@ -10,6 +10,8 @@ st.set_page_config(page_title='Dotacion RRHH',
 
 st.header('Dotacion anual')
 
+st.data_frame(df_anual)
+
 files = os.listdir('dotaciones/')
 sorted_files = sorted(files)
 selected_file_index = st.selectbox('Selecciona el periodo', range(len(sorted_files)), format_func=lambda i: sorted_files[i])
@@ -22,6 +24,12 @@ def get_data(file_name):
 if selected_file_index is not None:
     selected_file = files[selected_file_index]
     df = get_data(selected_file)
+
+def get_data2():
+    path =r'acumulado.xlsx'
+    return pd.read_excel(path)
+
+df_anual = get_data2()
 
 st.header('Dotacion mensual')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
