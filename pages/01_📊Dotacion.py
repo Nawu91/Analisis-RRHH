@@ -16,7 +16,7 @@ df_anual = get_data2()
 
 st.header('Dotacion anual')
 
-lineas = px.line(df_anual, x="Periodo", y="Count", color='Modalidad')
+lineas = px.line(df_anual, x="Modalidad", y="Count", color='Periodo')
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
 files = os.listdir('dotaciones/')
