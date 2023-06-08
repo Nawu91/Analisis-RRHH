@@ -31,8 +31,7 @@ selected_file_index = st.selectbox('Selecciona el periodo', range(len(sorted_fil
 @st.cache
 def get_data(file_name):
     path = os.path.join('dotaciones', file_name)
-    hoja ='Dota General'
-    return pd.read_excel(path, sheet_name=hoja)
+    return pd.read_excel(path)
 
 if selected_file_index is not None:
     selected_file = files[selected_file_index]
