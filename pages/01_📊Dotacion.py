@@ -40,7 +40,7 @@ if selected_file_index is not None:
     df = get_data(selected_file)
 
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
-st.dataframe(df_graf)
+
 
 st.header('Dotacion del periodo seleccionado')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
