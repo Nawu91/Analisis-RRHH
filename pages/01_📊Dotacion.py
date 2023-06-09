@@ -104,6 +104,6 @@ areas = px.bar(data_frame= df_graf,
                 width=1450,
                 height=500,
                 text_auto=True)
-areas.update_traces(texttemplate='%{text:.2s}', textposition='outside')
+areas.update_traces(textposition='outside')
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
 
