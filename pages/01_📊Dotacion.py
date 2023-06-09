@@ -105,5 +105,10 @@ areas = px.bar(data_frame= df_graf,
                 height=500,
                 text_auto=True)
 areas.update_traces(textposition='outside')
+sorted_df = df_graf.sort_values('Contador', ascending=False)
+x_sorted = sorted_df['Reparticion General']
+areas.update_layout(
+    xaxis={'categoryorder': 'array', 'categoryarray': x_sorted}
+
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
 
