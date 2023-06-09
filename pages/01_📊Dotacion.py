@@ -37,9 +37,9 @@ def get_data(file_name):
 
 if selected_file_index is not None:
     selected_file = files[selected_file_index]
-    df = get_data(selected_file)
+    df1 = get_data(selected_file)
 
-df= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
+df= df1.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
 
 st.header('Dotacion del periodo seleccionado')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
