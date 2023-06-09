@@ -97,7 +97,7 @@ st.header('Dotacion por reparticiones')
 
 areas = px.bar(data_frame= df_graf,
                 x='Reparticion General',
-                y='Contador'
+                y='Contador',
                 color="Modalidad",
                 barmode= 'relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
