@@ -102,7 +102,7 @@ areas = px.bar(data_frame= df_graf,
                 barmode='relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 width=1450,
-                height=900,
+                height=700,
                 text_auto=True)
 areas.update_traces(textposition='outside')
 sorted_df = df_graf.sort_values('Contador', ascending=False)
