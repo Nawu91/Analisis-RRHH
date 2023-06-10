@@ -6,7 +6,7 @@ import plotly.express as px
 
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
-                    initial_sidebar_state="expanded")
+                    initial_sidebar_state="auto")
 @st.cache_data
 def get_data2():
     path =r'acumulado.xlsx'
