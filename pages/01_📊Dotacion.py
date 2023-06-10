@@ -21,7 +21,8 @@ if selected_file_index is not None:
 def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
-    df_anual = get_data2()
+    
+df_anual = get_data2()
 
 st.header('Anual 2023')
 
