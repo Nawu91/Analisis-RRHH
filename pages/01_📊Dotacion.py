@@ -9,6 +9,7 @@ st.set_page_config(page_title='Dotacion RRHH',
                     initial_sidebar_state="expanded")
 
 st.header('Anual 2023')
+df_anual = get_data2()
 
 lineas = px.bar(df_anual, 
                 x="Periodo", 
@@ -34,7 +35,6 @@ def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
     
-df_anual = get_data2()
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
 
 st.header('Dotacion del periodo seleccionado')
