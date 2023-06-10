@@ -8,6 +8,18 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
 
+st.header('Anual 2023')
+
+lineas = px.bar(df_anual, 
+                x="Periodo", 
+                y="Count", 
+                color='Modalidad',
+                barmode='group',
+                width=1450,
+                height=500,
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                text_auto=True)
+st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 files = os.listdir('dotaciones/')
 selected_file_index = st.selectbox('Selecciona el periodo', range(len(files)), format_func=lambda i: files[i])
 @st.cache
@@ -23,19 +35,6 @@ def get_data2():
     return pd.read_excel(path)
     
 df_anual = get_data2()
-
-st.header('Anual 2023')
-
-lineas = px.bar(df_anual, 
-                x="Periodo", 
-                y="Count", 
-                color='Modalidad',
-                barmode='group',
-                width=1450,
-                height=500,
-                color_discrete_sequence=px.colors.qualitative.Set2,
-                text_auto=True)
-st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
 
 st.header('Dotacion del periodo seleccionado')
