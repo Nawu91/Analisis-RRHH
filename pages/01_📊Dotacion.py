@@ -7,7 +7,7 @@ import plotly.express as px
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="expanded")
-@st.cache
+@st.cache_data
 def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
@@ -30,7 +30,7 @@ st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 files = os.listdir('dotaciones/')
 selected_file_index = st.selectbox('Selecciona el periodo', range(len(files)), format_func=lambda i: files[i])
 
-@st.cache
+@st.cache_data
 def get_data(file_name):
     path = os.path.join('dotaciones', file_name)
     return pd.read_excel(path)
