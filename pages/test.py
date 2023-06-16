@@ -11,16 +11,14 @@ st.set_page_config(page_title='Dotacion RRHH',
 def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
+df_anual = get_data2()
 
 selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
 lista_periodo = periodos.unique().tolist()
 periodos = df_anual['Periodo']
 
-if selected_periodo is not None:
-    selected_file = [selected_periodo]
-    df_anual = get_data(selected_file)
+df_filtrado = df_anual[df_anual['Periodo'] == selected_periodo]
 
-df_anual = get_data2()
 
 st.header('Anual 2023')
 
