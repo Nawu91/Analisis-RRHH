@@ -91,7 +91,7 @@ ind7.metric(label='AT',
 st.header('Dotacion por reparticiones')
 
 
-areas = px.bar(data_frame= df_graf,
+areas = px.bar(data_frame= df,
                 x='Reparticion General',
                 y='Contador',
                 color="Modalidad",
