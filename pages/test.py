@@ -13,9 +13,11 @@ def get_data2():
     return pd.read_excel(path)
 df_anual = get_data2()
 
-selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
-lista_periodo = periodos.unique().tolist()
 periodos = df_anual['Periodo']
+lista_periodo = periodos.unique().tolist()
+selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
+
+
 
 df_filtrado = df_anual[df_anual['Periodo'] == selected_periodo]
 
