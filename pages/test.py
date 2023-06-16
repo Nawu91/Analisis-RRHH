@@ -23,7 +23,7 @@ st.header('Anual 2023')
 
 lineas = px.bar(df_count, 
                 x="Periodo",
-                y='Count' 
+                y='Count', 
                 color='Modalidad',
                 barmode='group',
                 width=1450,
