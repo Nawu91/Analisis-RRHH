@@ -16,9 +16,6 @@ df_anual = get_data2()
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
 selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
-
-
-
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 
 
@@ -26,7 +23,7 @@ st.header('Anual 2023')
 
 lineas = px.bar(df_anual, 
                 x="Periodo", 
-                y="Count", 
+                y=["Modalidad"].count(), 
                 color='Modalidad',
                 barmode='group',
                 width=1450,
