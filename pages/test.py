@@ -14,7 +14,7 @@ def get_data2():
 
 if selected_periodo is not None:
     selected_file = [selected_periodo]
-    df = get_data(selected_file)
+    df_anual = get_data(selected_file)
 
 df_anual = get_data2()
 
