@@ -12,6 +12,8 @@ def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
 
+selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
+
 if selected_periodo is not None:
     selected_file = [selected_periodo]
     df_anual = get_data(selected_file)
@@ -34,7 +36,7 @@ st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
 
-selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
+
 
 
 st.header('Dotacion del periodo seleccionado')
