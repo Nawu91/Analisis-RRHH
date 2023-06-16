@@ -12,7 +12,7 @@ def get_data():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
 df_anual = get_data()
-
+st.header('Anual 2023')
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
 lista_items_ordenada = sorted(lista_periodo)
@@ -20,9 +20,6 @@ selected_periodo = st.selectbox('Selecciona el periodo',lista_items_ordenada)
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
-
-st.header('Anual 2023')
-
 lineas = px.bar(df_count, 
                 x="Periodo",
                 y='Count', 
@@ -33,6 +30,9 @@ lineas = px.bar(df_count,
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
+
+
+
 
 
 
