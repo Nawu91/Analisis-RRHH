@@ -12,6 +12,10 @@ def get_data2():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
 
+if selected_periodo is not None:
+    selected_file = [selected_periodo]
+    df = get_data(selected_file)
+
 df_anual = get_data2()
 
 st.header('Anual 2023')
