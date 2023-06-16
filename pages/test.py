@@ -19,7 +19,7 @@ selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
 
 
 
-df_filtrado = df_anual[df_anual['Periodo'] == selected_periodo]
+df= df_anual[df_anual['Periodo'] == selected_periodo]
 
 
 st.header('Anual 2023')
