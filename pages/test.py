@@ -31,7 +31,7 @@ lineas = px.bar(df_count,
                 text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
-
+st.write(selected_periodo)
 
 
 
