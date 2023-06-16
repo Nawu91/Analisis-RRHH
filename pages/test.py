@@ -14,7 +14,8 @@ def get_data():
 df_anual = get_data()
 
 periodos = df_anual['Periodo']
-lista_periodo = sorted(periodos.unique().tolist())
+lista_periodo = periodos.unique().tolist()
+lista_items_ordenada = sorted(lista_periodo, key=lambda x: pd.to_datetime(x, format='%B'))
 selected_periodo = st.selectbox('Selecciona el periodo',lista_periodo)
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
