@@ -18,6 +18,7 @@ lista_periodo = periodos.unique().tolist()
 selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
+df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
 
 st.header('Anual 2023')
 
