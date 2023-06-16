@@ -28,7 +28,7 @@ lineas = px.bar(df_anual,
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
 periodos = df_anual['Periodo']
-lista_periodo = periodos.tolist()
+lista_periodo = periodos.unique.tolist()
 
 selected_periodo = st.selectbox('Selecciona el periodo', lista_periodo)
 
