@@ -15,7 +15,7 @@ df_anual = get_data()
 
 periodos = df_anual['Periodo']
 lista_periodo = sorted(periodos.unique().tolist())
-selected_periodo = st.selectbox('Selecciona el periodo',range(len(lista_periodo)), format_func=lambda i: lista_periodo[i])
+selected_periodo = st.selectbox('Selecciona el periodo',lista_periodo)
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
