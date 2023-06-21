@@ -106,7 +106,7 @@ df_anual_totales = df_anual.groupby(['Periodo']).size().reset_index(name='Count'
 lineas_anuales = px.line(df_anual_totales,
                         x='Periodo',
                         y='Count',
-                        width=1450,
+                        width=1200,
                         height=400,
                         range_y = (4000,5000),
                         line_shape= 'linear',
