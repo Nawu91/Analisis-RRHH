@@ -108,7 +108,7 @@ df_anual_totales = df_anual.groupby(['Periodo']).size().reset_index(name='Count'
 lineas_anuales = px.bar(df_anual_totales,
                         x='Periodo',
                         y='Count',
-                        barmode='group',
+                        barmode='relative',
                         width=1450,
                         height=400,
                         color_discrete_sequence=px.colors.qualitative.Set2,
