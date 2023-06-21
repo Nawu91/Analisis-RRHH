@@ -80,7 +80,7 @@ areas = px.bar(data_frame= df_graf,
                 color="Modalidad",
                 barmode='relative',
                 color_discrete_sequence=px.colors.qualitative.Set2,
-                width=1450,
+                width=1000,
                 height=700,
                 text_auto=True)
 areas.update_traces(textposition='outside')
@@ -98,7 +98,7 @@ lineas = px.bar(df_count,
                 y='Count', 
                 color='Modalidad',
                 barmode='group',
-                width=1000,
+                width=1450,
                 height=400,
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 text_auto=True)
