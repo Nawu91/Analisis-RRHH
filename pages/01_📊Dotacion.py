@@ -8,41 +8,20 @@ st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="auto")
 @st.cache_data
-def get_data2():
+def get_data():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
+df_anual = get_data()
+st.header('Dotacion Mensual')
 
-df_anual = get_data2()
-
-st.header('Anual 2023')
-
-lineas = px.bar(df_anual, 
-                x="Periodo", 
-                y="Count", 
-                color='Modalidad',
-                barmode='group',
-                width=1450,
-                height=400,
-                color_discrete_sequence=px.colors.qualitative.Set2,
-                text_auto=True)
-st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
-
-files = os.listdir('dotaciones/')
-selected_file_index = st.selectbox('Selecciona el periodo', range(len(files)), format_func=lambda i: files[i])
-
-@st.cache_data
-def get_data(file_name):
-    path = os.path.join('dotaciones', file_name)
-    return pd.read_excel(path)
-
-if selected_file_index is not None:
-    selected_file = files[selected_file_index]
-    df = get_data(selected_file)
-
+periodos = df_anual['Periodo']
+lista_periodo = periodos.unique().tolist()
+lista_items_ordenada = sorted(lista_periodo)
+selected_periodo = st.selectbox('Selecciona el periodo',lista_items_ordenada)
+df= df_anual[df_anual['Periodo'] == selected_periodo]
+df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
 
-
-st.header('Dotacion del periodo seleccionado')
 ausup = df[(df["Modalidad"] == "Autoridades Superiores")]["Modalidad"].count()
 cg = df[(df["Modalidad"] == "Carrera Gerencial")]["Modalidad"].count()
 gab = df[(df["Modalidad"] == "Gabinete")]["Modalidad"].count()
@@ -59,9 +38,7 @@ pt_ta = df[(df["Modalidad"] == "Plantas Transitorias")]["Total Asig"].sum()
 conls_ta = df[(df["Modalidad"] == "CLS")]["Total Asig"].sum()
 at_ta = df[(df["Modalidad"] == "AT")]["Total Asig"].sum()
 
-ind1, ind2, ind3 = st.columns(3)
-ind4, ind5, ind6, ind7 = st.columns(4)
-
+ind1, ind2, ind3, ind4, ind5, ind6, ind7 = st.columns(7)
 
 ind1.metric(label='Autoridades Superiores',
                 value=int(ausup),
@@ -92,14 +69,12 @@ ind7.metric(label='AT',
                 delta='$' + format(at_ta,'0,.2f'),
                 delta_color='normal',)
 
-st.header('Dotacion por reparticiones')
-
-
 areas = px.bar(data_frame= df_graf,
                 x='Reparticion General',
                 y='Contador',
                 color="Modalidad",
                 barmode='relative',
+                title = 'Reparticiones mensual',
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 width=1450,
                 height=700,
@@ -111,3 +86,29 @@ areas.update_layout(
     xaxis={'categoryorder': 'array', 'categoryarray': x_sorted})
 
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
+
+st.header('Anual 2023')
+
+lineas = px.bar(df_count, 
+                x="Periodo",
+                y='Count', 
+                color='Modalidad',
+                barmode='group',
+                title = 'Modalidades por año',
+                width=1450,
+                height=400,
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                text_auto=True)
+st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
+
+df_anual_totales = df_anual.groupby(['Periodo']).size().reset_index(name='Count')
+lineas_anuales = px.line(df_anual_totales,
+                        x='Periodo',
+                        y='Count',
+                        width=1200,
+                        height=400,
+                        title = 'Total anual',
+                        range_y = (4000,5000),
+                        line_shape= 'linear',
+                        color_discrete_sequence=px.colors.qualitative.Set2)
+st.plotly_chart(lineas_anuales,theme="streamlit", use_conatiner_width=True)
