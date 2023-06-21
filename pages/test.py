@@ -77,9 +77,9 @@ st.header('Dotacion por reparticiones')
 repas = df_graf['Reparticion General']
 lista_repas = repas.unique().tolist()
 select_repa = st.selectbox('Selecciona la repartición',lista_repas)
+df_graf= df_graf[df_graf['Reparticion General'] == select_repa]
 
-
-areas = px.bar(data_frame= select_repa,
+areas = px.bar(data_frame= df_graf,
                 x='Reparticion General',
                 y='Contador',
                 color="Modalidad",
