@@ -40,8 +40,6 @@ at_ta = df[(df["Modalidad"] == "AT")]["Total Asig"].sum()
 
 ind1, ind2, ind3, ind4, ind5, ind6, ind7 = st.columns(7)
 
-
-
 ind1.metric(label='Autoridades Superiores',
                 value=int(ausup),
                 delta='$' + format(ausup_ta,'0,.2f'),
