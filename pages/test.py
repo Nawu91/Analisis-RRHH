@@ -13,6 +13,19 @@ def get_data():
     return pd.read_excel(path)
 df_anual = get_data()
 
+st.header('Anual 2023')
+
+lineas = px.bar(df_count, 
+                x="Periodo",
+                y='Count', 
+                color='Modalidad',
+                barmode='group',
+                width=1450,
+                height=400,
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                text_auto=True)
+st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
+
 st.header('Dotacion del periodo seleccionado')
 
 periodos = df_anual['Periodo']
@@ -92,15 +105,4 @@ areas.update_layout(
 
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
 
-st.header('Anual 2023')
 
-lineas = px.bar(df_count, 
-                x="Periodo",
-                y='Count', 
-                color='Modalidad',
-                barmode='group',
-                width=1450,
-                height=400,
-                color_discrete_sequence=px.colors.qualitative.Set2,
-                text_auto=True)
-st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
