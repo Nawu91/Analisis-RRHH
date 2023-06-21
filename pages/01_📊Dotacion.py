@@ -111,6 +111,5 @@ lineas_anuales = px.line(df_anual_totales,
                         range_y = (4000,5000),
                         line_shape= 'linear',
                         line_group='Count',
-                        text='Count',
                         color_discrete_sequence=px.colors.qualitative.Set2)
 st.plotly_chart(lineas_anuales,theme="streamlit", use_conatiner_width=True)
