@@ -12,7 +12,7 @@ def get_data():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
 df_anual = get_data()
-st.header('Dotacion del periodo seleccionado')
+st.header('Dotacion Mensual')
 
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
