@@ -79,7 +79,7 @@ lista_repas = repas.unique().tolist()
 select_repa = st.selectbox('Selecciona la repartición',lista_repas)
 
 
-areas = px.bar(data_frame= df_graf,
+areas = px.bar(data_frame= select_repa,
                 x='Reparticion General',
                 y='Contador',
                 color="Modalidad",
