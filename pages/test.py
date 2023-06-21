@@ -106,7 +106,7 @@ df_anual_totales = df_anual.groupby(['Periodo']).size().reset_index(name='Count'
 lineas_anuales = px.line(df_anual_totales,
                         x='Periodo',
                         y='Count',
-                        width=700,
+                        width=1450,
                         height=400,
                         color_discrete_sequence=px.colors.qualitative.Set2)
 st.plotly_chart(lineas_anuales,theme="streamlit", use_conatiner_width=True)
