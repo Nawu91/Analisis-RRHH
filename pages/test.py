@@ -104,5 +104,5 @@ lineas = px.bar(df_count,
                 text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
 
-df_anual_totales = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
+df_anual_totales = df_anual.groupby(['Periodo']).size().reset_index(name='Count')
 st.write(df_anual_totales)
