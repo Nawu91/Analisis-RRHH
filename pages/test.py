@@ -69,9 +69,6 @@ ind7.metric(label='AT',
                 delta='$' + format(at_ta,'0,.2f'),
                 delta_color='normal',)
 
-st.header('Dotacion por reparticiones')
-
-
 areas = px.bar(data_frame= df_graf,
                 x='Reparticion General',
                 y='Contador',
