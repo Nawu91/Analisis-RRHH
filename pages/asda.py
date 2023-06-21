@@ -17,7 +17,7 @@ st.header('Anual 2023')
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
 lista_items_ordenada = sorted(lista_periodo)
-selected_periodo = st.selectbox('Selecciona el periodo',lista_items_ordenada)
+
 df= df_anual[df_anual['Periodo'] == selected_periodo]
 df_count = df_anual.groupby(['Periodo', 'Modalidad']).size().reset_index(name='Count')
 df_graf= df.groupby(['Reparticion General', 'Modalidad']).size().reset_index(name='Contador')
