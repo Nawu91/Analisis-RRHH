@@ -74,12 +74,8 @@ ind7.metric(label='AT',
 
 st.header('Dotacion por reparticiones')
 
-repas = df_graf['Reparticion General']
-lista_repas = repas.unique().tolist()
-select_repa = st.multiselect('Selecciona la repartición',lista_repas,lista_repas)
-df_repas= df_graf[df_graf['Reparticion General'] == select_repa]
 
-areas = px.bar(data_frame= df_repas,
+areas = px.bar(data_frame= df_graf,
                 x='Reparticion General',
                 y='Contador',
                 color="Modalidad",
