@@ -3,3 +3,4 @@ pandas
 plotly.express
 xlrd
 openpyxl
+streamlit.components.v1
