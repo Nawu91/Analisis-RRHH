@@ -16,7 +16,7 @@ def get_data():
     path =r'acumulado.xlsx'
     return pd.read_excel(path)
 df_anual = get_data()
-st.title('Tablero de indicadores - Dotaciones')
+st.title('Tablero de indicadores DGDIM-RRHH _ Dotaciones')
 st.header('Dotacion Mensual')
 
 periodos = df_anual['Periodo']
