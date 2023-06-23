@@ -1,7 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-
 background = '''
     <style>
     body {
@@ -10,12 +9,10 @@ background = '''
     }
     </style>
 '''
-
 st.markdown(background, unsafe_allow_html=True)
 
 
 sidebar_container = st.sidebar.container()
-
 with sidebar_container:
     st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)
 
