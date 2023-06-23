@@ -11,7 +11,7 @@ sidebar_container = st.sidebar.container()
 background = '''
     <style>
     body {
-        background-image: url("nombre_de_la_imagen.jpg");
+        background-image: url("BA.jpg");
         background-size: cover;
     }
     </style>
