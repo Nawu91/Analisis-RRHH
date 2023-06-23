@@ -17,6 +17,8 @@ df = get_data()
 colaborador = df[df['Rol']=='Colaborador']
 lider = df[df['Rol']=='Líder']
 
+st.header('Ley Micaela 👩')
+
 col1, col2 = st.columns(2)
 
 with col1:
@@ -62,4 +64,6 @@ with col2:
         st.plotly_chart(grafico_col, theme="streamlit",use_conatiner_width=False)
     else:
         st.plotly_chart(grafico_lid, theme="streamlit", use_conatiner_width=False)
+
+st.header('Ley Yolanda ♻️')
 
