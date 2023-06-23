@@ -8,7 +8,7 @@ st.set_page_config(page_title='Ley Micaela',
                     initial_sidebar_state='expanded')
 
 
-@st.cache
+@st.cache_data
 def get_data():
     path =r'Ley micaela.xlsx'
     return pd.read_excel(path)

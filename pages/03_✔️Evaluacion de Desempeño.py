@@ -7,7 +7,7 @@ st.set_page_config(page_title='ED 2022',
                     initial_sidebar_state="expanded")
 st.header("Evaluacion de Desempeño 2022")
 
-@st.cache
+@st.cache_data
 def get_data():
     path ='Ed 2022.xlsx'
     return pd.read_excel(path)
