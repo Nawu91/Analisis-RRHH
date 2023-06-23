@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-sidebar_container = st.sidebar.container()
+
 background = '''
     <style>
     body {
