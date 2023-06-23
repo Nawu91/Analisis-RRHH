@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from streamlit_extras.app_logo import add_logo
 
 st.set_page_config(page_title='ED 2022',
                     layout='wide',
                     initial_sidebar_state="expanded")
+add_logo("bavos-footer.png")
 sidebar_container = st.sidebar.container()
 with sidebar_container:
     st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)

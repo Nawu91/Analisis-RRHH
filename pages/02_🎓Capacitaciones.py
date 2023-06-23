@@ -1,11 +1,12 @@
 import streamlit as st
-
+from streamlit_extras.app_logo import add_logo
 import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title='Ley Micaela',
                     layout='wide',
                     initial_sidebar_state='expanded')
+add_logo("bavos-footer.png")
 
 sidebar_container = st.sidebar.container()
 with sidebar_container:
