@@ -18,7 +18,7 @@ def get_data():
 df_anual = get_data()
 st.title('Tablero de indicadores DGDIM-RRHH _ Dotaciones')
 st.header('Dotacion Mensual')
-
+st.divider() 
 periodos = df_anual['Periodo']
 lista_periodo = periodos.unique().tolist()
 lista_items_ordenada = sorted(lista_periodo)
@@ -93,6 +93,7 @@ areas.update_layout(
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
 
 st.header('Anual 2023')
+st.divider() 
 
 lineas = px.bar(df_count, 
                 x="Periodo",
