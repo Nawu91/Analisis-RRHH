@@ -9,7 +9,7 @@ st.set_page_config(page_title='Ley Micaela',
 
 sidebar_container = st.sidebar.container()
 with sidebar_container:
-    st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width='auto')
+    st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)
 
 @st.cache_data
 def get_data():
