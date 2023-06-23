@@ -7,6 +7,10 @@ import plotly.express as px
 st.set_page_config(page_title='Dotacion RRHH',
                     layout='wide',
                     initial_sidebar_state="auto")
+sidebar_container = st.sidebar.container()
+with sidebar_container:
+    st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)
+    
 @st.cache_data
 def get_data():
     path =r'acumulado.xlsx'
