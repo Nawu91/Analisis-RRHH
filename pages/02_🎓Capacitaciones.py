@@ -52,7 +52,7 @@ with col2:
                     color='Status Micaela',
                     labels={'variable':'Status','value':'Agentes'},
                     barmode= 'relative',
-                    height=500,
+                    height=700,
                     width=700,
                     color_discrete_sequence=px.colors.qualitative.Set2)
     grafico_col.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
@@ -100,7 +100,7 @@ with col4:
                     color='Status Ley Yolanda',
                     labels={'variable':'Status','value':'Agentes'},
                     barmode= 'relative',
-                    height=700,
+                    height=500,
                     width=700,
                     color_discrete_sequence=px.colors.qualitative.Set2)
     grafico_col.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
