@@ -6,7 +6,7 @@ import plotly.express as px
 st.set_page_config(page_title='Ley Micaela',
                     layout='wide',
                     initial_sidebar_state='expanded')
-st.sidebar.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)
+st.sidebar.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width='auto')
 
 @st.cache_data
 def get_data():
