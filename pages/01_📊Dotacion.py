@@ -91,9 +91,8 @@ areas.update_layout(
     xaxis={'categoryorder': 'array', 'categoryarray': x_sorted})
 
 st.plotly_chart(areas,theme="streamlit", use_conatiner_width=True)
-
-st.header('Anual 2023')
 st.divider() 
+st.header('Anual 2023')
 
 lineas = px.bar(df_count, 
                 x="Periodo",
