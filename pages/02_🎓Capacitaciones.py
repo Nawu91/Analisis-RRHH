@@ -91,7 +91,7 @@ with col3:
 
 with col4:
     st.subheader('Progreso por reparticiones')
-    opcion = st.radio(
+    opcion_yolanda = st.radio(
                     "Selecciona el rol:",
                     ('Colaborador', 'Lider'))
 
