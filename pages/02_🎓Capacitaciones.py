@@ -93,7 +93,7 @@ with col4:
     st.subheader('Progreso por reparticiones')
     opcion_yolanda = st.radio(
                     "Selecciona el rol:",
-                    ('Colaborador', 'Lider'))
+                    ('Colaboradores', 'Lideres'))
 
     grafico_col = px.bar(data_frame = colab_yolanda,
                     x='Sigla',
