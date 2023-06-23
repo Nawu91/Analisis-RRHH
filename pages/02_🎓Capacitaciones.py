@@ -75,7 +75,7 @@ with col2:
         st.plotly_chart(grafico_col, theme="streamlit",use_conatiner_width=False)
     else:
         st.plotly_chart(grafico_lid, theme="streamlit", use_conatiner_width=False)
-
+st.divider() 
 st.header('Ley Yolanda ♻️')
 
 col3, col4 = st.columns(2)
