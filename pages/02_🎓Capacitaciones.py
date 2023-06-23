@@ -48,7 +48,7 @@ with col2:
                     ('Colaborador', 'Lider'))
 
     grafico_col = px.bar(data_frame = colaborador,
-                    x='Sigla',
+                    y='Sigla',
                     color='Status Micaela',
                     labels={'variable':'Status','value':'Agentes'},
                     barmode= 'relative',
@@ -59,7 +59,7 @@ with col2:
 
     grafico_lid = px.bar(
                         data_frame= lider,
-                        x='Sigla',
+                        y='Sigla',
                         color='Status Micaela',
                         labels={'variable':'Status','value':'Agentes'},
                         barmode= 'relative',
@@ -96,7 +96,7 @@ with col4:
                     ('Colaboradores', 'Lideres'))
 
     grafico_col = px.bar(data_frame = colab_yolanda,
-                    x='Sigla',
+                    y='Sigla',
                     color='Status Ley Yolanda',
                     labels={'variable':'Status','value':'Agentes'},
                     barmode= 'relative',
@@ -107,7 +107,7 @@ with col4:
 
     grafico_lid = px.bar(
                         data_frame= lid_yolanda,
-                        x='Sigla',
+                        y='Sigla',
                         color='Status Ley Yolanda',
                         labels={'variable':'Status','value':'Agentes'},
                         barmode= 'relative',
