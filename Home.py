@@ -12,7 +12,7 @@ background = '''
     </style>
 '''
 
-st.markdown(background, unsafe_allow_html=True)
+st.markdown(background, unsafe_allow_html=False)
 
 
 sidebar_container = st.sidebar.container()
