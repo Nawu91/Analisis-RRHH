@@ -8,9 +8,7 @@ st.set_page_config(page_title='Ley Micaela',
                     initial_sidebar_state='expanded')
 add_logo("bavos-footer.png")
 
-sidebar_container = st.sidebar.container()
-with sidebar_container:
-    st.image('bavos-footer.png', caption='DGDIM-RRHH', use_column_width=True)
+
 
 @st.cache_data
 def get_data():
