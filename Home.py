@@ -12,6 +12,7 @@ background = '''
     body {
         background-image: url("BA.jpg");
         background-size: cover;
+        color: red; /* Mensaje de prueba para verificar si el CSS se aplica correctamente */
     }
     </style>
 '''
