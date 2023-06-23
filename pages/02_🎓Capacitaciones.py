@@ -37,7 +37,7 @@ with col1:
                     names='Status Micaela',
                     color_discrete_sequence=px.colors.qualitative.Set2,
                     height=500,
-                    width=500,
+                    width=700,
                     hole=.4)
     st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=False)
 
@@ -85,7 +85,7 @@ with col3:
                     names='Status Ley Yolanda',
                     color_discrete_sequence=px.colors.qualitative.Set2,
                     height=500,
-                    width=500,
+                    width=700,
                     hole=.4)
     st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=False)
 
