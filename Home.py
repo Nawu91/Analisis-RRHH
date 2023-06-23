@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_extras.app_logo import add_logo
 
-add_logo("BA.jpg")
+add_logo("bavos-footer.png")
 
 sidebar_container = st.sidebar.container()
 with sidebar_container:
