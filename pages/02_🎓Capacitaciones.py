@@ -23,7 +23,7 @@ col1, col2 = st.columns(2)
 
 with col1:
 
-    st.header('Progreso total')
+    st.subheader('Progreso total')
     progreso = px.pie(
                     data_frame=df,
                     names='Status Micaela',
@@ -34,7 +34,7 @@ with col1:
     st.plotly_chart(progreso,theme="streamlit", use_conatiner_width=False)
 
 with col2:
-    st.header('Progreso por reparticiones')
+    st.subheader('Progreso por reparticiones')
     opcion = st.radio(
                     "Selecciona el rol:",
                     ('Colaborador', 'Lider'))
