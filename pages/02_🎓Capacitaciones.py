@@ -116,7 +116,7 @@ with col4:
                         color_discrete_sequence=px.colors.qualitative.Set2)
     grafico_lid.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
-    if opcion == 'Colaborador':
+    if opcion_yolanda == 'Colaborador':
         st.plotly_chart(grafico_col, theme="streamlit",use_conatiner_width=False)
     else:
         st.plotly_chart(grafico_lid, theme="streamlit", use_conatiner_width=False)
