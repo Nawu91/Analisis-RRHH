@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 @st.cache_data
-def get_data():
+def get_db():
     path =r'Funcionarios y UR MDHYH 2021.xlsx'
     return pd.read_excel(path)
-df = get_data()
+df = get_db()
