@@ -10,4 +10,4 @@ def get_db():
     return pd.read_excel(path,sheet_name='Funcionarios MDHYH')
 df = get_db()
 
-df_edit = st.data_editor(df, num_rows="dynamic",width=800,height=1450)
+df_edit = st.data_editor(df, num_rows="dynamic",width=1450,height=800)
