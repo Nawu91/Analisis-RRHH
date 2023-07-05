@@ -10,7 +10,6 @@ st.title('Gerencia Operativa Gestión de Recursos Humanos')
 page_bg_img ="""<style>
 body {
 background-image: url("BA.jpg");
-background-size: cover;
 }
 </style>"""
 
