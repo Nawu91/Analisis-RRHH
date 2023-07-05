@@ -7,3 +7,12 @@ st.set_page_config(page_title='App RRHH',
 add_logo("bavos-footer.png")
    
 st.title('Gerencia Operativa Gestión de Recursos Humanos')
+page_bg_img = '''
+<style>
+body {
+background-image: url("BA.jpg");
+background-size: cover;
+}
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
