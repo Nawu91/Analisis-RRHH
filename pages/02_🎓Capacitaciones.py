@@ -3,7 +3,7 @@ from streamlit_extras.app_logo import add_logo
 import pandas as pd
 import plotly.express as px
 
-st.set_page_config(page_title='Ley Micaela',
+st.set_page_config(page_title='Capacitaciones',
                     layout='wide',
                     initial_sidebar_state='expanded')
 add_logo("bavos-footer.png")
