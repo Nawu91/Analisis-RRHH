@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 
 def main():
     # Cargar el código HTML
-    with open("org.html") as file:
+    with open("org.html", "r") as file:
         html_code = file.read()
 
     # Agregar el componente HTML al Streamlit
