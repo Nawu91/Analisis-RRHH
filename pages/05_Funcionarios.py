@@ -2,6 +2,6 @@ import streamlit as st
 from streamlit import components
 
 def main():
-    with open("org.html") as file:
+    with open("organigrama.html", "r") as file:
         html_code = file.read()
     components.html(html_code, width=800, height=600, scrolling=True)
