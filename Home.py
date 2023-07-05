@@ -3,7 +3,7 @@ from streamlit_extras.app_logo import add_logo
 from PIL import Image
 
 st.set_page_config(page_title='App RRHH',
-                    layout='centered',
+                    layout='wide',
                     initial_sidebar_state="auto")
 add_logo("bavos-footer.png")
    
