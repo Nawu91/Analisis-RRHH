@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title='App RRHH',
                     layout='wide',
