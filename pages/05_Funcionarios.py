@@ -1,14 +1,10 @@
 import streamlit as st
 from streamlit import components
 
-def main():
-    with open("org.html", "r") as file:
-        html_code = file.read()
-    components.html(
-<html>
-<head>
-  <title>Organigrama MDHYHGC</title>
-  <script src="https://unpkg.com/gojs/release/go.js"></script>
+
+components.html(
+"""<title>Organigrama MDHYHGC</title>
+<script src="https://unpkg.com/gojs/release/go.js"></script>
 </head>
 <body>
   <div id="myDiagramDiv" style="width:100%; height:600px;"></div>
@@ -80,6 +76,4 @@ def main():
     // Asignar los datos al diagrama
     myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
-  </script>
-</body>
-</html>, width=800, height=600, scrolling=True)
+  </script>""", width=800, height=600, scrolling=True)
