@@ -13,4 +13,4 @@ background-image: url("BA.jpg");
 }
 </style>"""
 
-st.markdown(page_bg_img, unsafe_allow_html=False)
+components.html(page_bg_img, width=1100, height=1800, scrolling=True)
