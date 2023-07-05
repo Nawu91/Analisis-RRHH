@@ -10,7 +10,7 @@ add_logo("bavos-footer.png")
 st.title('Gerencia Operativa Gestión de Recursos Humanos')
 page_bg_img ="""<style>
 body {
-background-image: url("BA.jpg");
+background-image: url("BA.jpg")
 }
 </style>"""
 
