@@ -4,3 +4,4 @@ plotly.express
 xlrd
 openpyxl
 streamlit_extras
+pillow
