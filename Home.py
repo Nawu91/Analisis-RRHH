@@ -14,4 +14,4 @@ background-image: url("BA.jpg")
 }
 </style>"""
 
-components.html(page_bg_img, width=1100, height=1800, scrolling=True)
+components.html(page_bg_img)
