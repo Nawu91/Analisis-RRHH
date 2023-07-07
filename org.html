@@ -16,11 +16,7 @@
 
     // Definir los nodos y enlaces del organigrama
     myDiagram.nodeTemplate =
-      $(go.Node, "Auto",{
-            locationSpot: go.Spot.Top,
-            isShadowed: true, shadowBlur: 1,
-            shadowOffset: new go.Point(0, 1),
-            shadowColor: "rgba(0, 0, 0, .14)",},
+      $(go.Node, "Auto",
         $(go.Shape, "RoundedRectangle", { fill: "lightblue" }),
         $(go.Panel, "Vertical",
           $(go.TextBlock,
@@ -68,7 +64,7 @@
       { key: 5, name: "Costantino, Sergio Gabriel", title: "SECR Inclusión Social y Atención Inmediata",CUIL:"20223666230", code: "45170500 - SECISYAI",vigencia:"1/8/2021 - 1/1/400", actoadm:"DEC/276/AJG/2021", mailof: "sgcostantino@buenosaires.gob.ar",mailalt: "secostantino@hotmail.com", telefono: "1140468685" ,parent: 1 },
       { key: 6, name: "Perkins Oneto Gaona,Max ", title: "SS Administración",CUIL:"23187815339", code: "45010600 - SSADMINIS",vigencia:"12/2/2021 - 1/1/400", actoadm:"DEC/63/AJG/2021", mailof: "mperkinsonetogaona@buenosaires.gob.ar",mailalt: "max.perkins75@gmail.com", telefono: "1163985968" ,parent: 1 },
       { key: 7, name: "Barreto, Maria Belen", title: "SS Desarrollo del Potencial Humano",CUIL:"27337135418", code: "45010007 - SSDPH",vigencia:"1/8/2021 - 1/1/400", actoadm:"DEC/276/AJG/2021", mailof: "mbarreto@buenosaires.gob.ar",mailalt: "ma.belen.barreto@gmail.com", telefono: "1133538758" ,parent: 1 },
-      { key: 9, name: "", title: "COPIDIS Ley N° 447",CUIL:"", code: "",vigencia:"", actoadm:"", mailof: "",mailalt: "", telefono: "" ,parent: 0 },
+      { key: 9, name: "Ruiz, Leonardo", title: "COPIDIS Ley N° 447",CUIL:"20268736752", code: "20930000 - COPIDIS",vigencia:"1/4/2019 - 1/1/4000", actoadm:"EE/38759341/DGTALMHYDH/2019", mailof: "leonardoruiz@buenosaires.gob.ar",mailalt: "lioarg1978@gmail.com", telefono: "1123654492" ,parent: 0 },
       { key: 10, name: "", title: "Instituto de la Vivienda de la Ciudad",CUIL:"", code: "",vigencia:"", actoadm:"", mailof: "",mailalt: "", telefono: "" ,parent: 0 },
       { key: 11, name: "", title: "UPE Urbanización Barrio Padre Carlos Mugica",CUIL:"", code: "",vigencia:"", actoadm:"", mailof: "",mailalt: "", telefono: "" ,parent: 0 },
       { key: 12, name: "", title: "",CUIL:"", code: "",vigencia:"", actoadm:"", mailof: "",mailalt: "", telefono: "" ,parent: 0 },
