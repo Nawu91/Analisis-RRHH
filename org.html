@@ -18,7 +18,7 @@
     myDiagram.nodeTemplate =
       $(go.Node, "Auto",
         $(go.Shape, "RoundedRectangle", { fill: "lightblue" }),
-        $(go.Panel, "Vertical",
+        $(go.Panel, "Horizontal",
           $(go.TextBlock,
             { margin: 4, font:"italic 14px sans-serif" },
             new go.Binding("text", "title")),
