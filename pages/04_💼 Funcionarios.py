@@ -11,4 +11,4 @@ st.title('Organigrama MDHYHGC')
 
 with open("org.html", "r") as file:
     html_code = file.read()
-components.html(html_code, width=2000, height=1500, scrolling=True)
+components.html(html_code, width=800, height=1500, scrolling=True)
