@@ -4,7 +4,7 @@ import json
 
 def excel_to_dict(file_path):
     # Leer el archivo Excel
-    df = pd.read_excel(file_path, dtype={"Teléfono": str, "Rol_Desde": str, "Rol_Hasta": str})
+    df = pd.read_excel(file_path, dtype={"Telefono": str, "Rol_Desde": str, "Rol_Hasta": str})
     
     # Convertir las columnas de fecha a tipo datetime
     df["Rol_Desde"] = pd.to_datetime(df["Rol_Desde"]).dt.strftime("%Y-%m-%d")
