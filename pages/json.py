@@ -6,10 +6,14 @@ def excel_to_json(file):
     # Leer el archivo Excel
     df = pd.read_excel(file)
 
-    # Convertir a JSON con claves sin comillas
-    json_data = []
-    for _, row in df.iterrows():
-        json_data.append({str(key): value for key, value in row.items()})
+    # Convertir los valores Timestamp a cadenas de texto
+    df = df.applymap(lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, pd.Timestamp) else x)
+
+    # Reemplazar los valores NaT con None
+    df = df.where(pd.notnull(df), None)
+
+    # Convertir a JSON con claves y valores sin comillas
+    json_data = [{str(k): str(v) for k, v in record.items()} for record in df.to_dict(orient='records')]
 
     return json_data
 
@@ -27,8 +31,9 @@ if uploaded_file is not None:
 
     # Descargar el archivo JSON resultante
     json_filename = "resultado.json"
-    json_string = json.dumps(json_data, ensure_ascii=False)  # Convertir a JSON sin comillas en las claves
+    json_string = json.dumps(json_data, ensure_ascii=False)  # Convertir a JSON sin comillas en las claves y valores
     st.download_button("Descargar JSON", json_string, file_name=json_filename)
+
 
 
 
