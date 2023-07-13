@@ -4,7 +4,11 @@ import json
 
 def excel_to_dict(file_path):
     # Leer el archivo Excel
-    df = pd.read_excel(file_path)
+    df = pd.read_excel(file_path, dtype={"Teléfono": int})
+    
+    # Convertir las columnas de fechas a strings
+    df["Rol_Desde"] = df["Rol_Desde"].astype(str)
+    df["Rol_Hasta"] = df["Rol_Hasta"].astype(str)
     
     # Convertir el DataFrame de pandas a un diccionario
     data_dict = df.to_dict(orient='records')
