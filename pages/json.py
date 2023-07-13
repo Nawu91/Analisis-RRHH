@@ -2,9 +2,14 @@ import streamlit as st
 import pandas as pd
 import json
 
+def format_phone_number(phone):
+    # Eliminar puntos del número de teléfono y convertirlo a entero
+    phone = str(phone).replace(".", "")
+    return int(phone)
+
 def excel_to_dict(file_path):
     # Leer el archivo Excel
-    df = pd.read_excel(file_path, dtype={"Teléfono": int})
+    df = pd.read_excel(file_path, converters={"Teléfono": format_phone_number})
     
     # Convertir las columnas de fechas a strings
     df["Rol_Desde"] = df["Rol_Desde"].astype(str)
