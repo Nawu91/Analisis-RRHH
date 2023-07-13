@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import json
 
 def excel_to_json(file):
     # Leer el archivo Excel
@@ -24,4 +25,6 @@ if uploaded_file is not None:
 
     # Descargar el archivo JSON resultante
     json_filename = "resultado.json"
-    st.download_button("Descargar JSON", pd.DataFrame(json_data).to_json(orient='records'), file_name=json_filename)
+    json_string = json.dumps(json_data, ensure_ascii=False)  # Convertir a JSON sin comillas en las claves
+    st.download_button("Descargar JSON", json_string, file_name=json_filename)
+
