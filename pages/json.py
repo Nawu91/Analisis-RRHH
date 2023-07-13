@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import json
 
 def excel_to_dict(file_path):
     # Leer el archivo Excel
@@ -13,7 +14,7 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
-            modified_row[key.lower()] = value
+            modified_row[key] = str(value)
         modified_dict.append(modified_row)
     
     return modified_dict
@@ -32,12 +33,5 @@ if uploaded_file is not None:
     st.write(result_dict)
     
     # Descargar el diccionario como archivo JSON
-    json_data = pd.DataFrame(result_dict).to_json(orient='records')
+    json_data = json.dumps(result_dict)
     st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
-
-
-
-
-
-
-
