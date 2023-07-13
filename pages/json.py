@@ -1,11 +1,14 @@
 import streamlit as st
 import pandas as pd
 import json
-import numpy as np
 
 def excel_to_dict(file_path):
     # Leer el archivo Excel
     df = pd.read_excel(file_path, dtype={"Teléfono": str, "Rol_Desde": str, "Rol_Hasta": str})
+    
+    # Convertir las columnas de fecha a tipo datetime
+    df["Rol_Desde"] = pd.to_datetime(df["Rol_Desde"]).dt.strftime("%Y-%m-%d")
+    df["Rol_Hasta"] = pd.to_datetime(df["Rol_Hasta"]).dt.strftime("%Y-%m-%d")
     
     # Convertir el DataFrame de pandas a un diccionario
     data_dict = df.to_dict(orient='records')
@@ -15,9 +18,6 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
-            if key in ["Rol_Desde", "Rol_Hasta"]:
-                if isinstance(value, np.datetime64) and not pd.isnull(value):
-                    value = value.date().strftime("%Y-%m-%d")
             modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
