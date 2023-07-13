@@ -17,8 +17,8 @@ def excel_to_dict(file_path):
             modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
-    # Unir las claves y valores en un solo string sin comillas para las claves
-    final_dict = ', '.join([f'{k}: {v}' for d in modified_dict for k, v in d.items()])
+    # Convertir cada fila en un string separado por comas y entre llaves
+    final_dict = [f"{{{', '.join([f'{k}: {v}' for k, v in d.items()])}}}" for d in modified_dict]
     
     return final_dict
 
@@ -33,7 +33,9 @@ if uploaded_file is not None:
     
     # Mostrar el diccionario resultante
     st.write("Diccionario resultante:")
-    st.write(result_dict)
+    for row in result_dict:
+        st.write(row)
     
     # Descargar el diccionario como archivo JSON
-    st.download_button("Descargar JSON", data=result_dict, file_name="resultado.txt", mime="text/plain")
+    json_data = json.dumps(result_dict)
+    st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
