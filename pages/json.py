@@ -6,9 +6,17 @@ def excel_to_dict(file_path):
     df = pd.read_excel(file_path)
     
     # Convertir el DataFrame de pandas a un diccionario
-    data_dict = df.to_dict()
+    data_dict = df.to_dict(orient='records')
     
-    return data_dict
+    # Modificar el formato del diccionario
+    modified_dict = []
+    for row in data_dict:
+        modified_row = {}
+        for key, value in row.items():
+            modified_row[key.lower()] = value
+        modified_dict.append(modified_row)
+    
+    return modified_dict
 
 # Configuración de la aplicación Streamlit
 st.title("Conversión de Excel a Diccionario")
@@ -24,8 +32,9 @@ if uploaded_file is not None:
     st.write(result_dict)
     
     # Descargar el diccionario como archivo JSON
-    json_data = pd.DataFrame.from_dict(result_dict).to_json(orient='records')
+    json_data = pd.DataFrame(result_dict).to_json(orient='records')
     st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
+
 
 
 
