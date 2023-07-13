@@ -12,8 +12,9 @@ def excel_to_json(file):
     # Reemplazar los valores NaT con None
     df = df.where(pd.notnull(df), None)
 
-    # Convertir a JSON con claves y valores sin comillas
+    # Convertir a JSON con claves sin comillas
     json_data = [{str(k): str(v) for k, v in record.items()} for record in df.to_dict(orient='records')]
+    json_data = str(json_data).replace("'", "")  # Eliminar comillas en las claves
 
     return json_data
 
@@ -27,12 +28,12 @@ if uploaded_file is not None:
 
     # Mostrar el resultado
     st.write("Resultado en JSON:")
-    st.json(json_data)
+    st.code(json_data)
 
     # Descargar el archivo JSON resultante
     json_filename = "resultado.json"
-    json_string = json.dumps(json_data, ensure_ascii=True)  # Convertir a JSON sin comillas en las claves y valores
-    st.download_button("Descargar JSON", json_string, file_name=json_filename)
+    st.download_button("Descargar JSON", json_data.encode('utf-8'), file_name=json_filename)
+
 
 
 
