@@ -31,7 +31,7 @@ if uploaded_file is not None:
 
     # Descargar el archivo JSON resultante
     json_filename = "resultado.json"
-    json_string = json.dumps(json_data, ensure_ascii=False)  # Convertir a JSON sin comillas en las claves y valores
+    json_string = json.dumps(json_data, ensure_ascii=True)  # Convertir a JSON sin comillas en las claves y valores
     st.download_button("Descargar JSON", json_string, file_name=json_filename)
 
 
