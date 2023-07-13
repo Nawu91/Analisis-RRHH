@@ -14,7 +14,7 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
-            modified_row[key.lower()] = value
+            modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
     return modified_dict
@@ -32,9 +32,8 @@ if uploaded_file is not None:
     st.write("Diccionario resultante:")
     st.write(result_dict)
     
-    # Convertir el diccionario a JSON con claves sin comillas
-    json_data = json.dumps(result_dict, ensure_ascii=False)
-    
     # Descargar el diccionario como archivo JSON
+    json_data = json.dumps(result_dict)
     st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
+
 
