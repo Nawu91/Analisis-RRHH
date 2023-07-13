@@ -18,7 +18,10 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
-            modified_row[key] = f'"{value}"'
+            if key == "key":
+                modified_row[key] = str(value)
+            else:
+                modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
     # Convertir cada fila en un string separado por comas y entre llaves
