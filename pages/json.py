@@ -14,10 +14,13 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
-            modified_row[key] = f'{key}: "{value}"'
+            modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
-    return modified_dict
+    # Unir las claves y valores en un solo string sin comillas para las claves
+    final_dict = ', '.join([f'{k}: {v}' for d in modified_dict for k, v in d.items()])
+    
+    return final_dict
 
 # Configuración de la aplicación Streamlit
 st.title("Conversión de Excel a Diccionario")
@@ -33,5 +36,4 @@ if uploaded_file is not None:
     st.write(result_dict)
     
     # Descargar el diccionario como archivo JSON
-    json_data = "[" + ",\n".join(json.dumps(d) for d in result_dict) + "]"
-    st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
+    st.download_button("Descargar JSON", data=result_dict, file_name="resultado.txt", mime="text/plain")
