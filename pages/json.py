@@ -6,6 +6,9 @@ def excel_to_json(file):
     # Leer el archivo Excel
     df = pd.read_excel(file)
 
+    # Convertir los valores Timestamp a cadenas de texto
+    df = df.applymap(lambda x: x.strftime('%Y-%m-%d %H:%M:%S') if isinstance(x, pd.Timestamp) else x)
+
     # Convertir a JSON con claves sin comillas
     json_data = df.to_dict(orient='records')
 
