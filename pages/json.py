@@ -4,7 +4,7 @@ import json
 
 def excel_to_dict(file_path):
     # Leer el archivo Excel
-    df = pd.read_excel(file_path, dtype={"Telefono": str, "Rol_Desde": str, "Rol_Hasta": str})
+    df = pd.read_excel(file_path, dtype={"Teléfono": str, "Rol_Desde": str, "Rol_Hasta": str})
     
     # Convertir las columnas de fecha a tipo datetime
     df["Rol_Desde"] = pd.to_datetime(df["Rol_Desde"]).dt.strftime("%Y-%m-%d")
@@ -24,8 +24,8 @@ def excel_to_dict(file_path):
                 modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
-    # Convertir cada fila en un string separado por comas y entre llaves
-    final_dict = [f"{{{', '.join([f'{k}: {v}' for k, v in d.items()])}}}" for d in modified_dict]
+    # Convertir cada fila en un string separado por comas y entre llaves, agregando comas entre ellas
+    final_dict = ', '.join([f"{{{', '.join([f'{k}: {v}' for k, v in d.items()])}}}" for d in modified_dict])
     
     return final_dict
 
@@ -40,9 +40,7 @@ if uploaded_file is not None:
     
     # Mostrar el diccionario resultante
     st.write("Diccionario resultante:")
-    for row in result_dict:
-        st.write(row)
+    st.write(result_dict)
     
     # Descargar el diccionario como archivo JSON
-    json_data = json.dumps(result_dict)
-    st.download_button("Descargar JSON", data=json_data, file_name="resultado.json", mime="application/json")
+    st.download_button("Descargar JSON", data=result_dict, file_name="resultado.json", mime="application/json")
