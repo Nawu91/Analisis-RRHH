@@ -14,6 +14,8 @@ def excel_to_dict(file_path):
     for row in data_dict:
         modified_row = {}
         for key, value in row.items():
+            if key in ["Rol_Desde", "Rol_Hasta"]:
+                value = pd.to_datetime(value).date().strftime("%Y-%m-%d")
             modified_row[key] = f'"{value}"'
         modified_dict.append(modified_row)
     
