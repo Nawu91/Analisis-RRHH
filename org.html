@@ -30,14 +30,14 @@
       // Definir la plantilla de nodo
       myDiagram.nodeTemplate =
         $(go.Node, "Auto",
-          { deletable: false },
+          { deletable: false ,selectable: true},
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
           $(go.Panel, "Vertical",
             $(go.TextBlock,
-              { margin: 3, font: "bold 16px sans-serif", stroke: "white",selectable: true},
-              new go.Binding("text", "name"),),
+              { margin: 3, font: "bold 16px sans-serif", stroke: "white"},
+              new go.Binding("text", "name")),
             $(go.TextBlock,
               { margin: 3, font: "bold 14px sans-serif", stroke: "white" },
               new go.Binding("text", "Repartición")),
