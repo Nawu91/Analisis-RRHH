@@ -7,7 +7,7 @@ st.set_page_config(page_title='Funcionarios',
                     initial_sidebar_state="auto")
 add_logo("bavos-footer.png")
 
-st.title('Organigrama MDHYHGC')
+st.title('Organigrama MDHYHGC - Datos de contacto')
 
 with open("org.html", "r") as file:
     html_code = file.read()
