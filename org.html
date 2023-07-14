@@ -30,7 +30,7 @@
       // Definir la plantilla de nodo
       myDiagram.nodeTemplate =
         $(go.Node, "Auto",
-          { deletable: false ,selectable: true},
+          { deletable: false },
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
