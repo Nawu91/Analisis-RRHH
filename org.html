@@ -24,7 +24,6 @@
           {
             initialContentAlignment: go.Spot.Center, // Alinear el diagrama al centro
             contentAlignment: go.Spot.Top,
-            selectable: true,
             "undoManager.isEnabled": true // Habilitar la capacidad de deshacer/rehacer
           });
       
@@ -33,7 +32,6 @@
       myDiagram.nodeTemplate =
         $(go.Node, "Auto",
           { deletable: false },
-          { selectable: true },
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
