@@ -31,7 +31,7 @@
       // Definir la plantilla de nodo
       myDiagram.nodeTemplate =
         $(go.Node, "Auto",
-          { deletable: false },
+          { contextMenu: window.myHTMLLightBox },
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
@@ -267,6 +267,7 @@
 
 
       ];
+      myDiagram.contextMenu = window.myHTMLLightBox;
 
       // Asignar los datos al diagrama
       myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
