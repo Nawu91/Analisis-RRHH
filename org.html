@@ -18,6 +18,15 @@
     function init() {
       // Crear el diagrama
       var $ = go.GraphObject.make;
+      var allowExpand = true; // Variable para controlar si se permite expandir el nodo o no
+
+    function toggleExpandNode(node) {
+    if (allowExpand) {
+    // Aquí implementa la lógica para expandir el nodo si es necesario.
+    // Por ejemplo, si tienes un botón dentro del nodo que se usa para expandir/colapsar, puedes verificar si el clic ocurrió en ese botón y luego realizar la acción de expansión/colapso.
+    console.log("Expanding node: " + node.data.key);
+    }
+    }
 
       var myDiagram =
         $(go.Diagram, "myDiagramDiv",
