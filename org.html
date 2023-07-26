@@ -24,9 +24,10 @@
           {
             initialContentAlignment: go.Spot.Center, // Alinear el diagrama al centro
             contentAlignment: go.Spot.Top,
+            myDiagram.textEditingTool.defaultTextEditor = go.TextEditingTool.TextEditorSelect,
             "undoManager.isEnabled": true // Habilitar la capacidad de deshacer/rehacer
           });
-      myDiagram.textEditingTool.defaultTextEditor = go.TextEditingTool.TextEditorSelect;
+      
 
       // Definir la plantilla de nodo
       myDiagram.nodeTemplate =
