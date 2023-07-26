@@ -32,7 +32,7 @@
       myDiagram.nodeTemplate =
         $(go.Node, "Auto",
           { deletable: false },
-          { textEditable: true },
+          { selectable: true },
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
