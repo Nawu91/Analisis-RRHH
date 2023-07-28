@@ -8,3 +8,12 @@ st.set_page_config(page_title='PPT',
 add_logo("bavos-footer.png")
 
 st.title('Presentacion RRHH')
+
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
+with st.expander("+"):
