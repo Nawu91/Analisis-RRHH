@@ -10,5 +10,5 @@ add_logo("bavos-footer.png")
 st.title('Presentacion RRHH')
 
 with st.expander("asdasd"):
-  st.image("PPT GORRHH.jpg",width= 1750)
+  st.image("PPT GORRHH.jpg",width= 1700)
 
