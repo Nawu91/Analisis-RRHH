@@ -12,8 +12,8 @@ st.title('Presentacion RRHH')
 with open("org.html", "r") as file:
     html_code = file.read()
 
-with st.expander("-"):
-  st.image("PPT GORRHH.jpg",width= 1700)
+
+st.image("PPT GORRHH.jpg",width= 1700)
 
 with st.expander("diagrama 1"):
    components.html(html_code, width=1700, height=800, scrolling=True)
