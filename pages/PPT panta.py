@@ -9,10 +9,12 @@ add_logo("bavos-footer.png")
 
 st.title('Presentacion RRHH')
 
+with open("org.html", "r") as file:
+    html_code = file.read()
+
 with st.expander("-"):
   st.image("PPT GORRHH.jpg",width= 1700)
 
 with st.expander("- -"):
- with open("org.html", "r") as file:
-    html_code = file.read()
-components.html(html_code, width=1490, height=800, scrolling=True)
+ 
+  components.html(html_code, width=1490, height=800, scrolling=True)
