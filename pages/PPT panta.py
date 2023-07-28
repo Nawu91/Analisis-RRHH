@@ -17,4 +17,4 @@ with st.expander("-"):
 
 with st.expander("- -"):
  
-  components.html(html_code, width=1490, height=800, scrolling=True)
+  components.html(html_code, width=1700, height=800, scrolling=True)
