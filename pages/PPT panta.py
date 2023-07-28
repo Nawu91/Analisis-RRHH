@@ -11,10 +11,4 @@ st.title('Presentacion RRHH')
 
 with st.expander("+"):
   st.image("PPT GORRRHH(1).jpg")
-with st.expander("+"):
-with st.expander("+"):
-with st.expander("+"):
-with st.expander("+"):
-with st.expander("+"):
-with st.expander("+"):
-with st.expander("+"):
+
