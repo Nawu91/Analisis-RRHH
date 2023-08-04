@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diagrama Organizacional Jerárquico con GoJS</title>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/gojs/release/go.js"></script>
+  <style>
+    #myDiagramDiv {
+      width: 100%;
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="myDiagramDiv"></div>
+
+  <script>
+    function init() {
+      // Crear el diagrama
+      var $ = go.GraphObject.make;
+
+      var myDiagram =
+        $(go.Diagram, "myDiagramDiv",
+          {
+            initialContentAlignment: go.Spot.Center, // Alinear el diagrama al centro
+            contentAlignment: go.Spot.Top,
+            "undoManager.isEnabled": true // Habilitar la capacidad de deshacer/rehacer
+          });
+
+      // Definir la plantilla de nodo
+      myDiagram.nodeTemplate =
+        $(go.Node, "Auto",
+          { deletable: false },
+          $(go.Shape, "RoundedRectangle",
+            { fill: "#76bac6" },
+            new go.Binding("fill", "color")),
+          $(go.Panel, "Vertical",
+            $(go.TextBlock,
+              { margin: 3, font: "bold 16px sans-serif", stroke: "white"},
+              new go.Binding("text", "name")),
+            $(go.TextBlock,
+              { margin: 3, font: "bold 14px sans-serif", stroke: "white" },
+              new go.Binding("text", "Repartición")),
+            $(go.TextBlock,
+              { margin: 3, font: "12px sans-serif", stroke: "white"},
+              new go.Binding("text", "Correo_oficial", Correo_oficial => "Correo of: " + Correo_oficial)),
+            $(go.TextBlock,
+              { margin: 3, font: "12px sans-serif", stroke: "white"},
+              new go.Binding("text", "Telefono", Telefono => "Tel: " + Telefono)),     
+          ),
+          {
+            click: function (e, node) {
+              toggleExpandNode(node);
+            }
+          }
+        );
+      myDiagram.linkTemplate =
+        $(go.Link, go.Link.Orthogonal,
+          { corner: 5, selectable: false },
+          $(go.Shape, { strokeWidth: 3, stroke: "#424242" }));
+
+      // Ajustar la dirección de crecimiento de los nodos secundarios
+      myDiagram.layout =
+        $(go.TreeLayout,
+          { angle: 90, layerSpacing: 50, nodeSpacing: 20, arrangement: go.TreeLayout.ArrangementVertical });
+
+      // Crear los datos del diagrama
+      var nodeDataArray = [
+      {key: 1, Sigla: "MDHYHGC", Repartición: "Ministerio de Desarrollo Humano y Hábitat", name: "MARIELA DESIMONE (prensa)", Correo_oficial: "mdesimone@buenosaires.gob.ar", Telefono: "1140560800"},
+      {key: 2, Sigla: "UAI", Repartición: "Unidad de Auditoría Interna MDHYHGC", name: "LUCIANA GERVASONI", Correo_oficial: "lgervasoni@buenosaires.gob.ar", Telefono: "1167116283"},
+      {key: 3, Sigla: "DGPLYCG", Repartición: "DG Planificación y Control de Gestión", name: "INDIRA GUEVARA", Correo_oficial: "gindira@buenosaires.gob.ar", Telefono: "1140375855"},
+      {key: 4, Sigla: "SECISYAI", Repartición: "SECR Inclusión Social y Atención Inmediata", name: "LORENA HILENI", Correo_oficial: "lhileni@buenosaires.gob.ar", Telefono: "1162282074"},
+      {key: 5, Sigla: "SECISYAI", Repartición: "SECR Inclusión Social y Atención Inmediata", name: "AUGUSTO BOGADO", Correo_oficial: "augustobogado@buenosaires.gob.ar", Telefono: "1165662487"},
+      {key: 6, Sigla: "DGABCO", Repartición: "DG Abordaje Comunitario", name: "CAROLINA RANITI", Correo_oficial: "craniti@buenosaires.gob.ar", Telefono: "1162278264"},
+      {key: 7, Sigla: "DGAII", Repartición: "DG Atención Integral Inmediata", name: "CLAUDIA GRASES", Correo_oficial: "cgrases@buenosaires.gob.ar", Telefono: "1133537192"},
+      {key: 8, Sigla: "DGAII", Repartición: "DG Atención Integral Inmediata", name: "GISELA JARMOTA", Correo_oficial: "gjarmota@buenosaires.gob.ar", Telefono: "1162073787"},
+      {key: 9, Sigla: "DGDEIS", Repartición: "DG Desarrollo e Inclusión Social", name: "BELEN SANTOS", Correo_oficial: "bsantos@buenosaires.gob.ar", Telefono: "1161939121"},
+      {key: 10, Sigla: "SSADMI", Repartición: "Subsecretaria de Administracion", name: "BORDON BRENDA", Correo_oficial: "bbordon@buenosaires.gob.ar", Telefono: "1162956666"},
+      {key: 11, Sigla: "DGINFS", Repartición: "DG Infraestructura Social", name: "VALERIA SILVA", Correo_oficial: "valeriasilva@buenosaires.gob.ar", Telefono: "1153785031"},
+      {key: 12, Sigla: "DGTALMDHYH", Repartición: "DG Técnica, Administrativa y Legal", name: "CAMILA BUSETTI", Correo_oficial: "cbusetti@buenosaires.gob.ar", Telefono: "1138882143"},
+      {key: 13, Sigla: "SSDPH", Repartición: "SS Desarrollo del Potencial Humano", name: "NADIA AGUIRRE", Correo_oficial: "neaguirre@buenosaires.gob.ar", Telefono: "1153319227"},
+      {key: 14, Sigla: "DGAPP", Repartición: "DG Articulación Publico Privada", name: "BIANCA GUNINI", Correo_oficial: "bgunini@buenosaires.gob.ar", Telefono: "1138318680"},
+      {key: 15, Sigla: "DGEPS", Repartición: "DG Economía Popular y Social", name: "CLAUDIA AYALA", Correo_oficial: "cayala@buenosaires.gob.ar", Telefono: "1140621524"},
+      {key: 16, Sigla: "DGEPS", Repartición: "DG Economía Popular y Social", name: "MARA RUBERTO", Correo_oficial: "mruberto@buenosaires.gob.ar", Telefono: "1134296938"},
+      {key: 17, Sigla: "SSFPFC", Repartición: "SS Fortalecimiento Personal, Familiar y Comunitario", name: "JUAN CARDOSO", Correo_oficial: "jcardoso@buenosaires.gob.ar", Telefono: "1121841542"},
+      {key: 18, Sigla: "DGPOLA", Repartición: "DG POLITICAS ALIMENTARIAS", name: "LUCIANO LOPEZ", Correo_oficial: "lmlopez@buenosaires.gob.ar", Telefono: "1150210105"},
+      {key: 19, Sigla: "DGPOLA", Repartición: "DG POLITICAS ALIMENTARIAS", name: "MARIELA FERRARI", Correo_oficial: "maferrari@buenosaires.gob.ar", Telefono: "1160066859"},
+      {key: 20, Sigla: "DGDIYA", Repartición: "DG Desarrollo de Infancias y Adolescencias", name: "VIVIANA GONZALEZ", Correo_oficial: "mvgonzalez@buenosaires.gob.ar", Telefono: "1168951097"},
+      {key: 21, Sigla: "DGDIYA", Repartición: "DG Desarrollo de Infancias y Adolescencias", name: "MARIA DE LOS ANGELES ALBERTO", Correo_oficial: "amariadelosangeles@buenosaires.gob.ar", Telefono: "1165836261"},
+      {key: 22, Sigla: "DGMUJ", Repartición: "DG de la Mujer", name: "SUSANA BARRETO", Correo_oficial: "sbarreto@buenosaires.gob.ar", Telefono: "1134524117"},
+      {key: 23, Sigla: "DGMUJ", Repartición: "DG de la Mujer", name: "PAULA SAN SEBASTIAN QUIROGA", Correo_oficial: "psansebastianquiroga@buenosaires.gob.ar", Telefono: "1132859789"},
+      {key: 24, Sigla: "DGPSA", Repartición: "DG Políticas Sociales en Adicciones", name: "MICAELA LIBORIO", Correo_oficial: "mliborio@buenosaires.gob.ar", Telefono: "1138215548"},
+      {key: 25, Sigla: "DGPSA", Repartición: "DG Políticas Sociales en Adicciones", name: "SOLEDAD BURGO", Correo_oficial: "sburgo@buenosaires.gob.ar", Telefono: "1150434310"},
+      {key: 26, Sigla: "UPEUBPCM", Repartición: "UPE URBANIZACION BARRIO PADRECARLOS MUGICA", name: "ALEJANDRA ISTURIZ", Correo_oficial: "aisturiz@buenosaires.gob.ar", Telefono: "1163644199"},
+      {key: 27, Sigla: "UPEUBPCM", Repartición: "UPE URBANIZACION BARRIO PADRECARLOS MUGICA", name: "ADRIANA LOPEZ", Correo_oficial: "adriana.lopez@buenosaires.gob.ar", Telefono: "nan"},
+      {key: 28, Sigla: "COPIDIS", Repartición: "COPIDIS Ley N° 447", name: "VILLAVEDRA SAMANTA", Correo_oficial: "svillavedra@buenosaires.gob.ar", Telefono: "1150952112"}];
+
+      // Crear los enlaces del diagrama
+      var linkDataArray = [
+      { from: 1, to: 2 },
+      { from: 1, to: 17 },
+      { from: 1, to: 3 },
+      { from: 1, to: 4 },
+      { from: 4, to: 5 },
+      { from: 1, to: 10 },
+      { from: 1, to: 13 },
+      { from: 1, to: 28 },
+      { from: 1, to: 26 },
+      { from: 26, to: 27 },
+      { from: 17, to: 20 },
+      { from: 20, to: 21 },
+      { from: 17, to: 18 },
+      { from: 18, to: 19 },
+      { from: 17, to: 24 },
+      { from: 24, to: 25 },
+      { from: 17, to: 23 },
+      { from: 23, to: 22 },
+      { from: 5, to: 6 },
+      { from: 5, to: 7 },
+      { from: 5, to: 8 },
+      { from: 5, to: 9 },
+      { from: 10, to: 11 },
+      { from: 10, to: 12 },
+      { from: 13, to: 14 },
+      { from: 13, to: 15 },
+      { from: 15, to: 16 },
+    
+      ];
+
+      // Asignar los datos al diagrama
+      myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+
+      // Mostrar solo el nodo del CEO y ocultar los enlaces
+      myDiagram.nodes.each(function (node) {
+        if (node.data.key !== 1) {
+          node.visible = false;
+        }
+      });
+      myDiagram.links.each(function (link) {
+        link.visible = false;
+      });
+    }
+
+    // Función para expandir o contraer un nodo
+    function toggleExpandNode(node) {
+      var diagram = node.diagram;
+      diagram.startTransaction("toggleExpandNode");
+
+      // Comprobar si el nodo está expandido o contraído
+      var isExpanded = node.data.isExpanded || false;
+
+      // Mostrar u ocultar los nodos y enlaces conectados
+      node.findTreeChildrenNodes().each(function (child) {
+        child.visible = !isExpanded;
+        child.findLinksConnected().each(function (link) {
+          link.visible = !isExpanded;
+        });
+      });
+
+      // Actualizar la propiedad "isExpanded" del nodo
+      diagram.model.setDataProperty(node.data, "isExpanded", !isExpanded);
+
+      diagram.commitTransaction("toggleExpandNode");
+    }
+
+    // Iniciar el diagrama cuando la página haya terminado de cargarse
+    window.addEventListener("DOMContentLoaded", function () {
+      init();
+    });
+  </script>
+</body>
+</html>
