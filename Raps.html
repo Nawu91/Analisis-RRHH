@@ -34,7 +34,7 @@
           $(go.Shape, "RoundedRectangle",
             { fill: "#76bac6" },
             new go.Binding("fill", "color")),
-          $(go.Panel, "Horizontal",
+          $(go.Panel, "Vertical",
             $(go.TextBlock,
               { margin: 3, font: "bold 16px sans-serif", stroke: "white"},
               new go.Binding("text", "name")),
@@ -62,7 +62,7 @@
       // Ajustar la dirección de crecimiento de los nodos secundarios
       myDiagram.layout =
         $(go.TreeLayout,
-          { angle: 90, layerSpacing: 50, nodeSpacing: 20, arrangement: go.TreeLayout.ArrangementVertical });
+          { angle: 90, layerSpacing: 50, nodeSpacing: 20, arrangement: go.TreeLayout.ArrangementHorizontal });
 
       // Crear los datos del diagrama
       var nodeDataArray = [
