@@ -5,7 +5,7 @@ import plotly.express as px
 
 st.set_page_config(page_title='Capacitaciones',
                     layout='wide',
-                    initial_sidebar_state='expanded')
+                    initial_sidebar_state='auto')
 add_logo("bavos-footer.png")
 
 

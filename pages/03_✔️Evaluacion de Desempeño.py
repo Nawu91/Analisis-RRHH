@@ -5,7 +5,7 @@ from streamlit_extras.app_logo import add_logo
 
 st.set_page_config(page_title='ED 2022',
                     layout='wide',
-                    initial_sidebar_state="expanded")
+                    initial_sidebar_state="auto")
 add_logo("bavos-footer.png")
 
     
