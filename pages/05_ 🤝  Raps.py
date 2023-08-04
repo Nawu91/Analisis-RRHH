@@ -4,7 +4,7 @@ from streamlit_extras.app_logo import add_logo
 
 st.set_page_config(page_title='Raps',
                     layout='wide',
-                    initial_sidebar_state="collapsed")
+                    initial_sidebar_state="auto")
 add_logo("bavos-footer.png")
 
 st.title('Raps - Datos de contacto')
