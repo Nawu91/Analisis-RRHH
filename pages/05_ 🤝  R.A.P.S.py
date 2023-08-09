@@ -7,7 +7,7 @@ st.set_page_config(page_title='Raps',
                     initial_sidebar_state="collapsed")
 add_logo("bavos-footer.png")
 
-st.title('Raps - Datos de contacto')
+st.title('R.A.P.S - Datos de contacto')
 
 with open("Raps.html", "r") as file:
     html_code = file.read()
