@@ -60,7 +60,7 @@ with col2:
     grafico_col = px.bar(data_frame = colaborador,
                     y='Sigla',
                     color='Status Micaela',
-                    labels={'variable':'Status','value':'Agentes'},
+                    
                     barmode= 'relative',
                     height=500,
                     width=700,
