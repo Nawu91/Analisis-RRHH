@@ -31,13 +31,21 @@ st.header('Ley Micaela 👩')
 
 col1, col2 = st.columns(2)
 
+color_map = {
+    'Aprobó': '#90EE90',  
+    'No inscripto': '#20B2AA',
+    'Nunca ingresó': '#FFB6C1',
+    'Ingresó pero no finalizó': '#87CEFA'
+    
+}
+
 with col1:
 
     st.subheader('Progreso total')
     progreso = px.pie(
                     data_frame=df,
                     names='Status Micaela',
-                    color_discrete_sequence=px.colors.qualitative.Set2,
+                    color_discrete_map=color_map,
                     height=500,
                     width=700,
                     hole=.4)
@@ -56,7 +64,7 @@ with col2:
                     barmode= 'relative',
                     height=500,
                     width=700,
-                    color_discrete_sequence=px.colors.qualitative.Set2)
+                    color_discrete_map=color_map)
     grafico_col.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
     grafico_lid = px.bar(
@@ -67,7 +75,7 @@ with col2:
                         barmode= 'relative',
                         height=500,
                         width=700,
-                        color_discrete_sequence=px.colors.qualitative.Set2)
+                        color_discrete_map=color_map)
     grafico_lid.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
     if opcion == 'Colaborador':
@@ -85,7 +93,7 @@ with col3:
     progreso = px.pie(
                     data_frame=df_yolanda,
                     names='Status Ley Yolanda',
-                    color_discrete_sequence=px.colors.qualitative.Set2,
+                    color_discrete_map=color_map,
                     height=500,
                     width=700,
                     hole=.4)
@@ -104,7 +112,7 @@ with col4:
                     barmode= 'relative',
                     height=500,
                     width=700,
-                    color_discrete_sequence=px.colors.qualitative.Set2)
+                    color_discrete_map=color_map)
     grafico_col.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
     grafico_lid = px.bar(
@@ -115,7 +123,7 @@ with col4:
                         barmode= 'relative',
                         height=500,
                         width=700,
-                        color_discrete_sequence=px.colors.qualitative.Set2)
+                        color_discrete_map=color_map)
     grafico_lid.update_traces(textfont_size=15, textangle=0, textposition="inside", cliponaxis=True)
 
     if opcion_yolanda == 'Colaboradores':
