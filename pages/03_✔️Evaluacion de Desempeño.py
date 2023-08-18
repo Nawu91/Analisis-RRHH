@@ -38,7 +38,7 @@ ind3.metric(label='Validadas',
 
 in1.metric(label='Desp destacado',
           value=str(Desempeño_Destacado))
-in2.metric(label='Rechazadas',
+in2.metric(label='Desp bueno',
           value=str(Desempeño_Bueno))
 in4.metric(label='Desp bajo',
           value=str(Desempeño_Bajo))
