@@ -37,9 +37,6 @@ Desempeño_Destacado = int(df[(df['desempenio'] == 'Desempeño Destacado')]['des
 Desempeño_Bueno = int(df[(df['desempenio'] == 'Desempeño Bueno')]['desempenio'].count())
 Desempeño_Bajo = int(df[(df['desempenio'] == 'Desempeño Bajo')]['desempenio'].count())
 
-
-
-
 in1.metric(label='Desp destacado',
           value=str(Desempeño_Destacado))
 in2.metric(label='Rechazadas',
