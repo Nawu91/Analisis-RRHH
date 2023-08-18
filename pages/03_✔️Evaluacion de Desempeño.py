@@ -23,7 +23,7 @@ rechazada = int(df[(df['estado'] == 'Rechazada')]['estado'].count())
 validadas = int(df[(df['estado'] == 'Validada')]['estado'].count())
 
 ind1, ind2, ind3 = st.columns(3)
-graf1, graf2 = st.columns(2)
+graf1, graf2, graf3 = st.columns(3)
 
 ind1.metric(label='No evaluables',
           value=str(no_evaluable))
@@ -46,3 +46,11 @@ progreso_ed = px.pie(
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 hole=.4)
 graf2.plotly_chart(progreso_ed,theme="streamlit", use_conatiner_width=True)
+
+desemp_ed = px.bar(df,
+               x='institucional',
+               color='desempenio',
+               barmode= 'relative',
+               color_discrete_sequence=px.colors.qualitative.Set2)
+
+graf1.plotly_chart(desemp_ed, theme="streamlit", use_conatiner_width=True)
