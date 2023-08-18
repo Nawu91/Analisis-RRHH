@@ -21,6 +21,9 @@ df = get_data()
 no_evaluable = int(df[(df['estado'] == 'No Evaluable')]['estado'].count())
 rechazada = int(df[(df['estado'] == 'Rechazada')]['estado'].count())
 validadas = int(df[(df['estado'] == 'Validada')]['estado'].count())
+Desempeño_Destacado = int(df[(df['desempenio'] == 'Desempeño Destacado')]['desempenio'].count())
+Desempeño_Bueno = int(df[(df['desempenio'] == 'Desempeño Bueno')]['desempenio'].count())
+Desempeño_Bajo = int(df[(df['desempenio'] == 'Desempeño Bajo')]['desempenio'].count())
 
 ind1, ind2, ind3 = st.columns(3)
 in1, in2, in4 = st.columns(3)
@@ -32,10 +35,6 @@ ind2.metric(label='Rechazadas',
           value=str(rechazada))
 ind3.metric(label='Validadas',
           value=str(validadas))
-
-Desempeño_Destacado = int(df[(df['desempenio'] == 'Desempeño Destacado')]['desempenio'].count())
-Desempeño_Bueno = int(df[(df['desempenio'] == 'Desempeño Bueno')]['desempenio'].count())
-Desempeño_Bajo = int(df[(df['desempenio'] == 'Desempeño Bajo')]['desempenio'].count())
 
 in1.metric(label='Desp destacado',
           value=str(Desempeño_Destacado))
