@@ -23,7 +23,7 @@ rechazada = int(df[(df['estado'] == 'Rechazada')]['estado'].count())
 validadas = int(df[(df['estado'] == 'Validada')]['estado'].count())
 
 ind1, ind2, ind3 = st.columns(3)
-graf1, graf2, graf3 = st.columns(3)
+graf1, graf2, = st.columns(2)
 
 ind1.metric(label='No evaluables',
           value=str(no_evaluable))
@@ -31,6 +31,23 @@ ind2.metric(label='Rechazadas',
           value=str(rechazada))
 ind3.metric(label='Validadas',
           value=str(validadas))
+
+Desempeño_Destacado = int(df[(df['desempenio'] == 'Desempeño Destacado')]['desempenio'].count())
+Desempeño_Bueno = int(df[(df['desempenio'] == 'Desempeño Bueno')]['desempenio'].count())
+No_Evaluable = int(df[(df['desempenio'] == 'No Evaluable')]['desempenio'].count())
+Desempeño_Bajo = int(df[(df['desempenio'] == 'Desempeño Bajo')]['desempenio'].count())
+
+ind1, ind2, ind3, ind4 = st.columns(4)
+
+
+ind1.metric(label='Desp destacado',
+          value=str(Desempeño_Destacado))
+ind2.metric(label='Rechazadas',
+          value=str(Desempeño_Bueno))
+ind3.metric(label='No evaluables',
+          value=str(No_Evaluable))
+ind4.metric(label='Desp bajo',
+          value=str(Desempeño_Bajo))
 
 repas_ed = px.bar(df,
                x='institucional',
@@ -46,11 +63,3 @@ progreso_ed = px.pie(
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 hole=.4)
 graf2.plotly_chart(progreso_ed,theme="streamlit", use_conatiner_width=True)
-
-desemp_ed = px.bar(df,
-               x='institucional',
-               color='desempenio',
-               barmode= 'relative',
-               color_discrete_sequence=px.colors.qualitative.Set2)
-
-graf1.plotly_chart(desemp_ed, theme="streamlit", use_conatiner_width=True)
