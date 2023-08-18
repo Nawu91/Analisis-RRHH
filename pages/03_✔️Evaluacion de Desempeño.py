@@ -23,6 +23,7 @@ rechazada = int(df[(df['estado'] == 'Rechazada')]['estado'].count())
 validadas = int(df[(df['estado'] == 'Validada')]['estado'].count())
 
 ind1, ind2, ind3 = st.columns(3)
+ind1, ind2, ind3, ind4 = st.columns(4)
 graf1, graf2, = st.columns(2)
 
 ind1.metric(label='No evaluables',
@@ -37,7 +38,7 @@ Desempeño_Bueno = int(df[(df['desempenio'] == 'Desempeño Bueno')]['desempenio'
 No_Evaluable = int(df[(df['desempenio'] == 'No Evaluable')]['desempenio'].count())
 Desempeño_Bajo = int(df[(df['desempenio'] == 'Desempeño Bajo')]['desempenio'].count())
 
-ind1, ind2, ind3, ind4 = st.columns(4)
+
 
 
 ind1.metric(label='Desp destacado',
