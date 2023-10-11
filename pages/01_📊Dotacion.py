@@ -101,7 +101,7 @@ lineas = px.bar(df_count,
                 barmode='group',
                 title = 'Modalidades por año',
                 width=1450,
-                height=500,
+                height=450,
                 color_discrete_sequence=px.colors.qualitative.Set2,
                 text_auto=True)
 st.plotly_chart(lineas,theme="streamlit", use_conatiner_width=True)
