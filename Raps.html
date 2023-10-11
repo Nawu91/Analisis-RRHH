@@ -131,15 +131,7 @@
       myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
       // Mostrar solo el nodo del CEO y ocultar los enlaces
-      myDiagram.nodes.each(function (node) {
-        if (node.data.key !== 1) {
-          node.visible = false;
-        }
-      });
-      myDiagram.links.each(function (link) {
-        link.visible = false;
-      });
-    }
+      
 
     // Función para expandir o contraer un nodo
     function toggleExpandNode(node) {
