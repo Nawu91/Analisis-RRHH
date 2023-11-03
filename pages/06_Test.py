@@ -43,6 +43,8 @@ in4.metric(label='Desp bajo',
           value=str(Desempeño_Bajo))
 
 df_count = df.groupby(['institucional', 'estado']).size().reset_index(name='Count')
+st.dataframe(df_count)
+
 
 repas_ed = px.bar(df_count,
                x='institucional',
