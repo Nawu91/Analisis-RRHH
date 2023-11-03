@@ -50,7 +50,7 @@ repas_ed = px.bar(df_count,
                x='institucional',
                y='Count',
                color='estado',
-               barmode= 'relative',
+               barmode= 'stack',
                color_discrete_sequence=px.colors.qualitative.Set2)
 
 graf1.plotly_chart(repas_ed, theme="streamlit", use_conatiner_width=True)
