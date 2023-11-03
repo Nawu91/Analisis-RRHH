@@ -43,14 +43,13 @@ in4.metric(label='Desp bajo',
           value=str(Desempeño_Bajo))
 
 df_count = df.groupby(['institucional', 'estado']).size().reset_index(name='Count')
-st.dataframe(df_count)
 
 
 repas_ed = px.bar(df_count,
                x='institucional',
                y='Count',
                color='estado',
-               barmode= 'stack',
+               barmode='stack',
                color_discrete_sequence=px.colors.qualitative.Set2)
 
 graf1.plotly_chart(repas_ed, theme="streamlit", use_conatiner_width=True)
