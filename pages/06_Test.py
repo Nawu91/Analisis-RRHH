@@ -42,7 +42,9 @@ in2.metric(label='Desp bueno',
 in4.metric(label='Desp bajo',
           value=str(Desempeño_Bajo))
 
-repas_ed = px.bar(df,
+df_count = df.groupby(['institucional', 'estado']).size().reset_index(name='Count')
+
+repas_ed = px.bar(df_count,
                x='institucional',
                color='estado',
                barmode= 'relative',
