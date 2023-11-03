@@ -8,12 +8,12 @@ st.set_page_config(page_title='ED 2023',
                     initial_sidebar_state="collapsed")
 add_logo("bavos-footer.png")
 
-st.header("Evaluacion de Desempeño 2022")
+st.header("Evaluacion de Desempeño 2023")
 
 @st.cache_data
 def get_data():
-    path ='ED 2023.csv'
-    return pd.read_csv(path)
+    path ='ED 2023.xlsx'
+    return pd.read_excel(path)
 
 df = get_data()
 
