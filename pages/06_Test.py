@@ -48,7 +48,7 @@ st.dataframe(df_count)
 
 repas_ed = px.bar(df_count,
                x='institucional',
-               color='estado',
+               color='count',
                barmode= 'relative',
                color_discrete_sequence=px.colors.qualitative.Set2)
 
